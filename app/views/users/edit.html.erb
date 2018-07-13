@@ -1,0 +1,38 @@
+<div class="dark_card user_edit_form_card">
+  <%= form_for @user, url: user_path(@user), method: :patch, :html => { :multipart => true, "data-ajax" => false } do |f| %>
+	  <div align="center">
+      <p>
+  	    <% if (@user.god or @user.dev) or kristin? %>
+          <%= f.text_field :title, placeholder: "Change your title", class: "dark_text_field", id: :user_field_1 %>
+        <% end %>
+        <%= f.text_field :name, placeholder: "Change your name", class: "dark_text_field", id: :user_field_2 %>
+      </p>
+
+		  <%= f.text_area :body, placeholder: "Describe yourself", class: "dark_text_area", id: :user_field_3 %>
+
+		  <p>
+        <%= render "users/edit_form_profile_pic", user: @user %>
+        Avatar: <%= f.file_field :image, id: :user_field_4 %>
+	    </p>
+
+      <% if @user.old_profile_pictures.present? %>
+        <%= render "users/old_profile_pics", old_profile_pics: @user.old_profile_pictures %>
+        <%= render "users/toggle_old_profile_pics_link", user: @user %>
+      <% end %>
+
+      <% if god? %>
+        <p>
+          Featured: <%= f.check_box :featured, { checked: @user.featured } %>
+        </p>
+      <% end %>
+
+	    <p>
+		    <%= f.submit "Update Profile", class: "dark_form_button", id: :user_field_5 %>
+	    </p>
+	  </div>
+  <% end %>
+</div>
+
+<%= render "users/edit_password" %>
+
+<%= render "danger_area" %>

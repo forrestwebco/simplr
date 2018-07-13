@@ -1,0 +1,26 @@
+<% if @post.group.present? and invited? or current_user %>
+  <%= render "app/lineage", line: { group: @post.group, post: @post } %>
+<% end %>
+
+<%= render "posts/card", post: @post %>
+
+<%= render "posts/liked_and_viewed_by" %>
+
+<% if invited? or current_user %>
+  <%= render "comments/index", comments: @comments %>
+<% else %>
+  <div id="guest_prompt" class="dark_card" align="center">
+    <p>
+      You've stumbled across a small village in cyberspace... To enter Social Maya, <b>you need to find a Portal...</b>
+    </p>
+  </div>
+
+  <%= render "sessions/form" %>
+
+  <script>
+    <%= render "app/fader.js", target: "guest_prompt", target_id: "" %>
+  </script>
+<% end %>
+
+<%= audio_tag "effects/magic.wav", id: "zen_sound" %>
+<%= audio_tag "effects/bip.mp3", id: "post_interface_sound" %>

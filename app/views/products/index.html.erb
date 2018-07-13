@@ -1,0 +1,10 @@
+<h2 class="standard_page_header">Store <i class="fa fa-shopping-bag"></i></h2>
+
+<div class="dark_card">
+ <%= render "form", product: @product %>
+ <%= render "right_pane" %>
+</div>
+
+<% for product in @products %>
+  <%= render "products/card", product: product %>
+<% end %>

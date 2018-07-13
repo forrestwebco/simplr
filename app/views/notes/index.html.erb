@@ -1,0 +1,24 @@
+<h2 class="standard_page_header">Notifications <i class="fa fa-bell-o"></i></h2>
+
+<% for note in @notes %>
+  <% unless note.seen %>
+    <script>
+      <%= render "app/fader.js", target: "note_card", target_id: note.id.to_s, background: true %>
+    </script>
+  <% end %>
+  <%= render "notes/card", note: note %>
+<% end %>
+
+<%= render "load_more_link" %>
+
+<%= render "pages/load_bar", items: [], all_items: [] %>
+
+<% if @notes.empty? %>
+  <div class="card">
+    <p align="center">
+      You have zero notifications.
+    </p>
+  </div>
+<% end %>
+
+<% currently_unseen_notes.update_all seen: true %>

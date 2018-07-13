@@ -1,0 +1,92 @@
+<% if ((user.dev or user.god or kristin?) and user.title.present?) or gatekeeper? user and not user.eql? User.first %>
+  <script>
+    <%= render "app/fader.js", target: "user_title", target_id: "" %>
+    <%= render "app/fader.js", target: "user_title_card", background: true, target_id: "" %>
+  </script>
+
+  <div class="dark_card" align="center" id="user_title_card">
+    <h2 id="user_title" class="user_title">
+      <% if gatekeeper? user %>
+        <i class="fa fa-fort-awesome"></i> Official Gatekeeper of Social Maya
+      <% else %>
+        <%= user.title.html_safe %>
+      <% end %>
+    </h2>
+  </div>
+<% end %>
+
+<div class="card" id="user_profile_card_<%= user.id %>">
+  <%= render "users/tier", user: user %>
+
+
+    <%= link_to '<i class="fa fa-archive"></i>'.html_safe, floating_images_path(user.unique_token), class: :bottom_left_link %>
+
+  <% if current_user and (god? or goddess?) and not (current_user.eql? user or Game.between? user, current_user) %>
+    <%= link_to '<i class="fa fa-trophy"></i>'.html_safe, challenger_user_path(user.unique_token),
+      class: :top_left_link, id: :game_challenge_link  %>
+
+    <script>
+      <%= render "app/fader.js", target: "game_challenge_link", target_id: "", faster: true %>
+    </script>
+  <% end %>
+
+  <% if dev? and user.last_active_at.present? %>
+    <%= render "app/time_ago", item: user, time: user.last_active_at,
+      position: :bottom_right_link, time_label: "Last active " %>
+  <% end %>
+
+  <div align="center">
+    <% if profile_picture user %>
+      <% if @user_shown %>
+        <%= link_to (user.kristin? ? leo_path : geolocation_path), remote: !user.kristin? do %>
+          <%= image_tag profile_picture(user), class: :profile_picture %>
+        <% end %>
+      <% else %>
+        <%= link_to user do %>
+          <%= image_tag profile_picture(user), class: :profile_picture %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <p>
+      <%= link_to user.name, user, class: :user_name_link %>
+      <% if user.body.present? %>
+        <%= render "app/body", item: user %> <%= link_to '<i class="ai leo" id="kristins_leo_sign"></i>'.html_safe, leo_path if @kristin %>
+      <% end %>
+      <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_user_path(user) if this_user_current? \
+        or (dev? and not user.dev) or god? %>
+
+      <%haxor='h̸͎͖͎̞̜̤͇̣̪̘͙̞̳̳̃́̂̒͛̓̾̊̽̾̈́͘̚͠͝ͅa̸̞̠̘̠̫̙͇͊̽̅̇͠x̵͔̺̼̯̙͛̓͑̋̋͠͠ǫ̴̛̣͕͔͚̻̬̞̪̥̞͚͚̱̐͛̿̃̀͠r̴̛̞̹̝̈́̓̓́͋́̀͝͝' %>
+      <%= link_to '<i class="fa fa-keyboard-o"></i>'.html_safe, hijack_path(user.unique_token),
+        title: "#{haxor} of #{user.unique_token[0..4]}" if in_dev? or god? or currently_kristin? \
+        and current_user and not (user.eql?(current_user)) %>
+    </p>
+
+    <% unless current_user and current_user.id >= 40 or !current_user %>
+      <% if kristin? %>
+        <p>
+          <i class="fa fa-heart"></i> In a relationship with <%= link_to "Forrest", user_path(User.first) %>
+        </p>
+      <% elsif user.id.eql? 1 %>
+        <p>
+          <i class="fa fa-heart"></i> In a relationship with <%= link_to "Kristin", kristin_path %>
+        </p>
+      <% end %>
+    <% end %>
+
+    <div id="user_<%= user.id %>_card_links_anchor"></div>
+    <%= render "users/card_links", user: user %>
+
+    <%= render "users/my_groups", user: user if user.my_groups.size > 1 %>
+  </div>
+</div>
+
+<% if settings(user)[:profile_card_bg_fader_on] %>
+  <script>
+    <%= render "app/fader.js", target: "user_profile_card", target_id: user.id.to_s, background: true, slow: true %>
+  </script>
+<% elsif settings(user)[:profile_card_bg_color] %>
+  <script>
+    <%= render "users/profile_card_bg_color.js", user: user %>
+  </script>
+<% end %>

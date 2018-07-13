@@ -1,0 +1,249 @@
+// Place all the styles related to the treasures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin philosopher {
+  width: 100px;
+  float: left;
+  margin-top: 17.5px;
+  margin-right: 10px;
+  margin-bottom: 2.5px;
+}
+
+.philosopher_img {
+  @include philosopher;
+}
+
+.philosopher_img_lg {
+  @include philosopher;
+  width: 150px;
+}
+
+.kopimism_sybol_lg {
+  width: 95%;
+}
+
+.kopimi_symbol {
+  width: 25px;
+}
+
+.hype_love_img {
+  transition: all .4s ease-in-out;
+  position: relative;
+  max-width: 550px;
+  margin: 0 auto;
+  margin-bottom: 12.5px;
+  width: 94.5%;
+}
+
+.bottom_right_icon {
+  position: absolute;
+  bottom: 5px;
+  right: 13.5px;
+}
+
+.kopimi_field_large {
+  font-size: 25px;
+}
+
+.kopimi_field {
+  max-width: 275px;
+  min-width: 225px;
+  background: rgb(25, 25, 25);
+  color: white;
+  border-width: 1px;
+}
+
+.hype_nugget {
+  font-size: 25px;
+}
+
+.random_pixel {
+  position: absolute;
+  width: 2.5px;
+  height: 2.5px;
+  z-index: 5;
+}
+
+.div_game_div {
+  width: 50px;
+  height: 50px;
+  background: white;
+}
+
+.div_game_center_object {
+  width: 50px;
+  height: 50px;
+  background: white;
+}
+
+.treasure_challenge_form {
+  position: relative;
+  max-width: 350px;
+  margin: 0 auto;
+  width: 90%;
+  padding: 5px 0px;
+  margin-top: 15px;
+  border-radius: 2px;
+  background: rgb(10, 10, 10);
+  color: white;
+}
+
+.treasure_form_link {
+  font-size: 12px;
+}
+
+.xp_reward_container {
+  position: fixed;
+  top: 55px;
+  right: 10px;
+  width: 100px;
+  height: 100px;
+  background: rgb(0, 255, 0);
+  color: rgb(0, 0, 255);
+  border-radius: 3px;
+  z-index: 5;
+}
+
+.xp_reward {
+  position: absolute;
+  top: 17.5%;
+  left: 15%;
+  font-size: 4em;
+  font-weight: bolder;
+}
+
+.xp_reward_acronym {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 10px;
+}
+
+.loot_icon_substitute {
+  margin-top: 50px;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.treasure_body {
+  color: white;
+}
+
+.loot_container {
+  padding-top: 25px;
+}
+
+.loot_image {
+  width: 90%;
+  max-width: 350px;
+}
+
+@keyframes crescent_pulse {
+  0% {
+    box-shadow: -15px -15px 0 0 rgb(136,227,182);
+  }
+  100% {
+    box-shadow: 15px 15px 0 0 rgb(119,221,119);
+  }
+}
+
+@keyframes crescent_card_pulse {
+  0% {
+    background: rgb(119,158,203);
+    box-shadow: -7.5px -7.5px 7.5px rgb(136,227,182);
+  }
+  100% {
+    background: rgb(255,105,97);
+    box-shadow: 7.5px 7.5px 7.5px rgb(119,221,119);
+  }
+}
+
+@keyframes forrest_title_card_glow {
+  0% {
+    background: rgb(119,158,203);
+    box-shadow: -7.5px -7.5px 7.5px rgb(136,227,182);
+  }
+  100% {
+    background: rgb(255,105,97);
+    box-shadow: 7.5px 7.5px 7.5px rgb(119,221,119);
+  }
+}
+
+@keyframes forrest_title_txt_shadow {
+  0% {
+    color: rgb(255,105,97);
+    text-shadow: 1px 1px 1px black;
+  }
+  100% {
+    color: rgb(119,158,203);
+    text-shadow: 1.25px 1.25px 1.25px black;
+  }
+}
+
+@keyframes kristins_crescent_label_pulse {
+  0% {
+    color: rgb(255,105,97);
+    text-shadow: 1px 1px 1px black;
+  }
+  100% {
+    color: rgb(119,158,203);
+    text-shadow: 1.25px 1.25px 1.25px black;
+  }
+}
+
+@keyframes kristins_leo_sign_pulse {
+  0% {
+    text-shadow: 0px 0px 0px yellow;
+  }
+  100% {
+    text-shadow: 1.25px 1.25px 1.25px rgb(119,221,119);
+  }
+}
+
+#crescent_moon {
+  animation: crescent_pulse 7.5s infinite alternate;
+
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: -15px 15px 0 0 black;
+  margin-bottom: 25px;
+  margin-top: 24px;
+}
+
+#kristins_crescent_label {
+  animation: kristins_crescent_label_pulse 7.5s infinite alternate;
+
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#kristins_leo_sign {
+  animation: kristins_leo_sign_pulse 7.5s infinite alternate;
+}
+
+#crescent_card {
+  animation: crescent_card_pulse 7.5s infinite alternate;
+}
+
+#forrest_title_card {
+  animation: forrest_title_card_glow 7.5s infinite alternate;
+}
+
+#forrest_title_txt {
+  animation: forrest_title_txt_shadow 7.5s infinite alternate;
+}
+
+.kristins_spacer {
+  padding-top: 55px;
+}
+
+
+// zodiac stuff
+.ai.leo:before {
+  content:"\264C";
+}
+.ai.pisces:before {
+  content:"\2653";
+}

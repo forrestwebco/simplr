@@ -1,0 +1,32 @@
+<% t = (defined?(time) ? time : item.created_at) %>
+
+<% _time_ago = time_ago(time_ago_in_words(t)) %>
+
+<% link_class = (item.is_a?(Post) or item.is_a?(Proposal)) ? "standard_post_link" : "top_right_link" %>
+<% link_class = position.to_s if defined?(position) %>
+<% link_class << ' dark_link' if item.is_a? Message %>
+
+<% _time_ago = time_label + _time_ago if defined?(time_label) %>
+
+<% link_path = if anrcho? and item.is_a?(Group) %>
+  <% show_group_path item.unique_token %>
+<% elsif item.is_a?(Portal) and item.cluster %>
+  <% show_cluster_path item.unique_token %>
+<% elsif item.is_a?(Portal) %>
+  <% show_portal_path item.unique_token %>
+<% elsif item.is_a?(View) %>
+  <% view_path item.id %>
+<% elsif item.is_a?(Proposal) %>
+  <% show_proposal_path item.unique_token %>
+<% elsif item.is_a?(Vote) %>
+  <% show_vote_path item.unique_token %>
+<% else %>
+  <% item.is_a?(Post) ? show_post_path(item.unique_token.nil? ? item.id : item.unique_token) : item %>
+<% end %>
+
+<!-- Accounts for anrcho groups and uses token link instead -->
+<%= link_to link_path, :class => link_class do %>
+  <strong style="<%= defined?(black_link) ? 'color:black;' : (defined?(white_link) ? 'color:white;' : '') %>">
+    <%= _time_ago %>
+  </strong>
+<% end %>

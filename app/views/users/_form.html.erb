@@ -1,0 +1,37 @@
+<script>
+  <%= render "app/fader.js", target: "already", target_id: "" %>
+  <%= render "app/fader.js", target: "remember_me_check_box", target_id: "" %>
+</script>
+
+<div class="dark_card">
+  <%= form_for(@user) do |f| %>
+    <% if forrest_only_club? %>
+      <%= hidden_field_tag :forrest_only, true %>
+    <% end %>
+
+  	<%= link_to "Already signed up?", sessions_new_path, class: "top_right_link white_link", id: :already %>
+
+    <div align="center">
+      <p>
+        <%= f.text_field :name, placeholder: "Nickname", class: :dark_text_field, id: :signup_field_1 %>
+        <%= f.password_field :password, placeholder: "Password", class: :dark_text_field, id: :signup_field_2 %>
+        <%= f.password_field :password_confirmation, placeholder: "Confirm password",
+          class: :dark_text_field, id: :signup_field_3 %>
+      </p>
+	    <p>
+        <button type="submit" name="commit" class="dark_form_button" id="signup_field_4">
+	        <b>Sign up <i class="fa fa-pencil"></i></b>
+        </button>
+      </p>
+    </div>
+
+
+    <%= link_to "Anrcho...", to_anrcho_portal_url, class: "dark_link bottom_left_link" %>
+
+	  <%= image_tag "fire.gif", class: :fire_gif %>
+
+	  <div id="remember_me_check_box">
+		  Remember me <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+	  </div>
+  <% end %>
+</div>

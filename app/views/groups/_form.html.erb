@@ -1,0 +1,45 @@
+<div class="dark_card">
+  <%= form_for(@group) do |f| %>
+    <% if @group.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+        <ul>
+        <% @group.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div align="center">
+      <%= f.text_field :name, placeholder: "Name", class: :dark_text_field %>
+      <%= f.text_area :body, placeholder: "Description", class: :dark_text_area %>
+
+
+		  <p>Change icon: <%= f.file_field :image %></p>
+      <% if @editing and @group.image_url %>
+        <div>
+          Current icon: <%= image_tag @group.image, style: "width:5%;" %>
+        </div>
+      <% end %>
+
+      <p>
+        <%= f.select :social_structure, options_for_select(group_structure_options, @group.social_structure) %>
+      </p>
+
+      <% if dev? %>
+        <p>
+          Posts visible to anons: <%= f.check_box :open, { checked: @group.open } %>
+        </p>
+      <% end %>
+
+      <p>
+        Only accessible by URL or matched tags: <%= f.check_box :hidden, { checked: @group.hidden } %>
+      </p>
+
+      <button type="submit" name="commit" class="dark_form_button">
+        <b><%= @editing ? "Save" : "Create" %> <i class="fa fa-group"></i></b>
+      </button>
+    </div>
+  <% end %>
+</div>

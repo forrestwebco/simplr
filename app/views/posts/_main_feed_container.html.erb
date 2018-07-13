@@ -1,0 +1,48 @@
+<script>
+  <%= render "posts/infinite_scroll.js", param: (@preview_items ? "preview" : "posts") %>
+</script>
+
+<% if returning_user_with_stale_content? and in_dev? %>
+  <div class="dark_card" align="center">
+    <p>
+      Showing featured content...
+    </p>
+  </div>
+
+  <% for item in featured_content.first 10 %>
+    <% if item.is_a? Post %>
+      <%= render "posts/card", post: item %>
+    <% elsif item.is_a? Proposal %>
+      <%= render "proposals/card", proposal: item %>
+    <% end %>
+  <% end %>
+
+  <div class="dark_card" align="center">
+    <p>
+      End of featured content...
+    </p>
+  </div>
+<% end %>
+
+<div id="feed_container_anchor"></div>
+<%= render "posts/feed_container", items: items, all_items: all_items %>
+
+<%= render "users/scrolling_avatar.js" %>
+
+<% if items.empty? and not @preview_items %>
+  <div class="card">
+    <p align="center">
+      <% if current_user and (current_user.following.size.zero? or current_user.my_groups.size.zero?) %>
+        Your feed is currently empty since you haven't followed anyone or joined any groups yet. Try
+        <%= link_to "searching", search_path(query: 'users and groups') %>
+        for
+        <%= link_to "people", search_path(query: 'users') %>
+        to follow or
+        <%= link_to "groups", search_path(query: 'groups') %>
+        to join.
+      <% else %>
+        There aren't any posts yet.
+      <% end %>
+    </p>
+  </div>
+<% end %>

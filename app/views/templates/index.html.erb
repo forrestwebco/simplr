@@ -1,0 +1,38 @@
+</br>
+<div class="dark_card" id="forrest_web_co_card">
+  <h2 class="standard_page_header" id="forrest_web_co_header">
+    Forrest Web Company <i class="fa fa-grav"></i>
+  </h2>
+</div>
+
+<div class="template_card web_co_bio_card" align="left">
+  <%= image_tag "forrest_web_co/html_code.jpg", class: :forrest_web_co_img %>
+  <p>
+    Need a professional website made with quick turnaround for your business, company, or idea that hasn't launched yet?
+  </p>
+  <p>
+    All of my websites are built from scratch using the web development framework known as Ruby on Rails. So whether it's a simple, static landing page for your art or music, or something more complex (e.g. custom social networks or inventory management systems), you've come to the right place.
+  </p>
+  <p>
+    My specialties include website design, hosting, mobile responsive websites, search engine optimization, and full scale content management systems.
+  </p>
+  <p>
+    <%= link_to "mailto:forrestwilkinswebcompany@gmail.com", class: :"white_link web_co_email_link" do %>
+     forrestwilkinswebcompany@gmail.com
+    <% end %>
+  </p>
+  <p>
+    <b>
+      (984) 202-6939
+    </b>
+  </p>
+</div>
+
+<% unless Rails.env.development? %>
+  <%= audio_tag "music/future_business.mp3", id: "business_music" %>
+
+  <script>
+    $("#business_music")[0].currentTime = 0;
+    $("#business_music")[0].play();
+  </script>
+<% end %>

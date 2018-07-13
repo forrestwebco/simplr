@@ -1,0 +1,4 @@
+if (!<%= @item.class.to_s.downcase %>_<%= @item.id %>_comments_shown) {
+  $("#<%= @item.class.to_s.downcase %>_comments_anchor_<%= @item.id %>").after("<%=j render 'comments/mini_index' %>");
+  var <%= @item.class.to_s.downcase %>_<%= @item.id %>_comments_shown = true;
+}
