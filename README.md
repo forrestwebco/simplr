@@ -1,10 +1,8 @@
-## Social Maya
+## Keep It On Pointe
 
-Social Maya, a free and open source social network, and intentional digital community for artists and philosophers.
+A website for a dance studio
 
-This is free and open source software, as specified above by the GNU General Public License.
-
-## Setting up Social Maya server
+## Setting up Keep It On Pointe server
 
 1. Download the package or clone the repo.
 2. Install Ruby version 2.2 using RVM or the Ruby Installer
