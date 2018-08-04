@@ -12,15 +12,8 @@ class ApplicationController < ActionController::Base
 
   include SimpleCaptcha::ControllerHelpers
 
-  # redirects to proposals index for anrcho.com
-  before_action :anrcho_to_proposals, except: [:index]
-
-  # redirects to forrest_web_co
-  before_action :forrest_web_co_to_forrest_web_co, except: [:index, :on_point, :pricing, :calendar,
-    :semantic_ui, :uikit, :purecss, :sample_blog, :login, :create, :update, :edit]
-
-  # bots go to 404 for all pages
-  before_action :bots_to_404, except: [:index]
+  # bots go to 404 for pages that need to be more secure
+  before_action :bots_to_404, only: [:login, :admin]
 
   def user_mentioned? item
     if item.respond_to? :body and item.body.present?
@@ -404,20 +397,7 @@ class ApplicationController < ActionController::Base
     return item_string
   end
 
-  def anrcho_to_proposals
-    if request.host.eql? 'anrcho.com' and not cookies[:at_anrcho].present?
-      cookies.permanent[:at_anrcho] = true.to_s
-      redirect_to proposals_path
-    end
-  end
-
-  def forrest_web_co_to_forrest_web_co
-    if false # request.host.eql? 'forrestwebco.com' or request.host.eql? 'forrestwilkins.com'
-      redirect_to forrest_web_co_path
-    end
-  end
-
   def bots_to_404
-    redirect_to '/404' if request.bot? and anrcho? # turned on only for anrcho
+    redirect_to '/404' if request.bot?
   end
 end
