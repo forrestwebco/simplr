@@ -14,6 +14,9 @@ gem 'money-rails'
 
 # time and scheduling
 gem 'simple_calendar'
+gem 'google_calendar'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 # UI/UX front end frameworks
 gem 'semantic-ui-sass'
@@ -97,7 +100,7 @@ gem 'nokogiri'
 
 # google search
 gem 'google-search'
-gem 'google-api-client'
+gem 'google-api-client', require: 'google/apis/calendar_v3'
 gem 'google_custom_search_api'
 
 # for scraping wikipedia

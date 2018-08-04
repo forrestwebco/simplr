@@ -66,9 +66,11 @@
 }
 
 .ui.button.get_started_button {
-  //background: #94DBD5;
+  background: #94DBD5;
 }
 
+
+// for mobile
 @media only screen and (max-width: 700px) {
   .ui.fixed.menu {
     display: none !important;
@@ -170,4 +172,28 @@
   .current-month {}
 
   .has-events {}
+}
+
+// pricing css stuff
+
+.box_stuff {
+  float: left;
+  width: 24.2%;
+  height: 500px;
+  background: blue;
+  margin: .4% .4%;
+}
+
+.box_container {
+  background: black;
+  width: 1200px;
+  min-height: 50px;
+  overflow: auto;
+  padding: .4% .4%;
+}
+
+// login
+
+.login_form_sm {
+  max-width: 500px;
 }

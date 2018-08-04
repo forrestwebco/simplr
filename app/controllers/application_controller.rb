@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   # redirects to forrest_web_co
   before_action :forrest_web_co_to_forrest_web_co, except: [:index, :on_point, :pricing, :calendar,
-    :semantic_ui, :uikit, :purecss, :sample_blog]
+    :semantic_ui, :uikit, :purecss, :sample_blog, :login, :create, :update, :edit]
 
   # bots go to 404 for all pages
   before_action :bots_to_404, except: [:index]
@@ -362,6 +362,10 @@ class ApplicationController < ActionController::Base
 
   def currently_kristin?
     current_user and current_user.id.eql? 34
+  end
+
+  def currently_auth?
+    current_user
   end
 
   def current_user

@@ -1,3 +1,9 @@
+<% if in_dev? %>
+  <%= standard_dark_card do %>
+    <canvas data-processing-sources="hello.pde"></canvas>
+  <% end %>
+<% end %>
+
 <%= render "arts/kristins_snek_card" %>
 
 <div class="art_card surreal_card" align="center">

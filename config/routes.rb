@@ -9,12 +9,28 @@ Rails.application.routes.draw do
   get 'lil_c', to: 'templates#lil_c', as: 'lil_c'
   get 'co', to: 'templates#index', as: 'forrest_web_co'
   get 'keep_it_on_pointe', to: 'templates#on_point', as: 'on_point'
-  get 'calendar', to: 'templates#calendar', as: 'on_point_calendar'
   get 'pricing', to: 'templates#pricing', as: 'on_point_pricing'
+  get 'on_point_login', to: 'templates#login', as: 'on_point_login'
   get 'semantic_ui', to: 'templates#semantic_ui', as: 'semantic_ui'
   get 'sample_blog', to: 'templates#sample_blog', as: 'sample_blog'
   get 'purecss', to: 'templates#purecss', as: 'purecss'
   get 'uikit', to: 'templates#uikit', as: 'uikit'
+
+  # on point CRUD paths
+  get 'on_point_edit/:token', to: 'templates#edit', as: 'on_point_edit'
+  put 'on_point_update/:token', to: 'templates#update', as: 'on_point_update'
+
+  # google calendar api auth routing for On Point
+  get 'calendar', to: 'templates#calendar', as: 'on_point_calendar'
+  get 'redirect', to: 'templates#redirect', as: 'redirect'
+  get 'callback', to: 'templates#callback', as: 'callback'
+  # has regex for calendar_id containing a .com at the end
+  get 'calendar_events/:calendar_id', to: 'templates#events', as: 'calendar_events', calendar_id: /[^\/]+/
+  # has regex for calendar_id containing a .com at the end
+  post 'new_calendar_event/:calendar_id', to: 'templates#new_event', as: 'new_calendar_event', calendar_id: /[^\/]+/
+
+  # for testing and learning purposes
+  get 'example_stuff', to: 'templates#example_stuff', as: 'example_stuff'
 
   # wikis
   get 'book', to: 'wikis#index', as: 'book'
@@ -25,6 +41,7 @@ Rails.application.routes.draw do
   get 'hide_featured_groups', to: 'groups#hide_featured_groups', as: 'hide_featured_groups'
   get 'show_group/:token', to: 'groups#show', as: 'show_group'
   get 'load_more_group_posts/:token', to: 'groups#load_more_posts', as: 'load_more_group_posts'
+  get 'g/:name', to: 'groups#show', as: 'show_group_by_name'
 
   # users
   get 'hide_featured_users', to: 'users#hide_featured_users', as: 'hide_featured_users'

@@ -1,0 +1,13 @@
+<% if current_user %>
+  <%= form_tag on_point_update_path(@item.unique_token), method: :put, class: "ui form" do %>
+    <%= hidden_field_tag :on_point, true %>
+
+    <div class="field">
+      <label>Text</label>
+      <%= text_area_tag :body, @item.body, placeholder: "Text" %>
+    </div>
+
+    <button class="ui button" type="submit">Save</button>
+
+  <% end %>
+<% end %>

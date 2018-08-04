@@ -5,6 +5,9 @@
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
+    <!-- fullcalendar resources -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" />
+
     <%= csrf_meta_tags %>
 
     <%= favicon_link_tag "favicons/#{get_site_ico}.ico" %>
@@ -19,10 +22,10 @@
     <meta name="msapplication-navbutton-color" content="#000000">
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
-    
-    
+
+
     <%= stylesheet_link_tag 'semantic_ui_style' %>
-    
+
     <style>
       .landing_image {
           background-image: url('images/on_point/ballet.jpg') !important;
@@ -86,7 +89,6 @@
       <a class="item">Register</a>
     </div>
 
-
     <!-- Page Contents -->
     <div class="pusher">
       <div class="ui inverted vertical masthead center aligned segment landing_image">
@@ -108,17 +110,14 @@
           <h1 class="ui inverted header site_title">
             Keep It On Pointe
           </h1>
-          <h2>A new type of dance studio, learn the many variety of dance</h2>
+          <h2><%= item_with_link "slogan" %></h2>
           </br>
           <div class="ui huge primary button get_started_button">Get Started <i class="right arrow icon"></i></div>
         </div>
       </div>
 
-  
-  
       <%= yield %>
-    
-        
+
       <div class="ui inverted vertical footer segment">
         <div class="ui container">
           <div class="ui stackable inverted divided equal height stackable grid">
@@ -137,7 +136,11 @@
                 <a href="#" class="item">Package Pre-Order</a>
                 <a href="#" class="item">Favorite Moments</a>
                 <a href="#" class="item">How To Access</a>
-                <a href="#" class="item">Site FAQ</a>
+                <% unless current_user %>
+                  <%= link_to 'Site Login', on_point_login_path, class: :item %>
+                <% else %>
+                  <%= link_to 'Log out', sessions_destroy_path, method: :delete, data: { confirm: "Are you sure you want to log out?" }, class: :item %>
+                <% end %>
               </div>
             </div>
             <div class="seven wide column">

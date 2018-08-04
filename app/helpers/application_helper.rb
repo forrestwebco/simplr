@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def standard_dark_card id='', &block
-    str = "<div class=\"dark_card\" id=\"#{id}\" align=\"center\">"
+  def standard_dark_card id='', alignment='center', &block
+    str = "<div class=\"dark_card\" id=\"#{id}\" align=\"#{alignment.to_sym}\">"
     str << capture(&block)
     str << '</div>'
     raw str
@@ -20,8 +20,8 @@ module ApplicationHelper
       "dance"
     elsif request.host.eql? "forrestonlyclub.com"
       "foc"
-    elsif request.host.eql? "forrestwilkins.com"
-      "glitch_om"
+    elsif request.host.eql? "forrestwilkins.com" or request.host.eql? "forrestwebco.com" or dev? or (invited? and not current_user)
+      "cube"
     elsif request.original_url.include? "/store"
       "store_2"
     else
