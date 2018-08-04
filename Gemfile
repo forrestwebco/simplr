@@ -28,7 +28,7 @@ gem 'meta-tags'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
-gem 'gpgme'
+#gem 'gpgme'
 
 # QR code generation
 gem 'rqrcode'
@@ -45,12 +45,12 @@ gem 'carrierwave'
 gem 'remotipart'
 
 # for location data
-gem 'geocoder'
-gem 'geo_units'
-gem 'geo-distance'
-gem 'geoip'
-gem 'area'
-gem 'geokit'
+#gem 'geocoder'
+#gem 'geo_units'
+#gem 'geo-distance'
+#gem 'geoip'
+#gem 'area'
+#gem 'geokit'
 
 # user agent detection
 gem 'useragent'
