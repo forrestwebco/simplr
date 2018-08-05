@@ -1,0 +1,5 @@
+<% unless current_user %>
+  <%= link_to 'Site Login', on_point_login_path, class: :item %>
+<% else %>
+  <%= link_to 'Log out', sessions_destroy_path, method: :delete, data: { confirm: "Are you sure you want to log out?" }, class: :item %>
+<% end %>

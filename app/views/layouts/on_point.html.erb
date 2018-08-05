@@ -2,29 +2,22 @@
 <html>
   <head>
     <title><%= current_title %></title>
-
+    <%= stylesheet_link_tag 'semantic_ui_style' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
     <!-- fullcalendar resources -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" />
-
     <%= csrf_meta_tags %>
 
     <%= favicon_link_tag "favicons/#{get_site_ico}.ico" %>
-
     <%= render "app/meta_tags" %>
 
 	  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#000000">
     <!-- Windows Phone -->
     <meta name="msapplication-navbutton-color" content="#000000">
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
-
-
-    <%= stylesheet_link_tag 'semantic_ui_style' %>
 
     <style>
       .landing_image {
@@ -37,7 +30,6 @@
     <script>
       $(document)
         .ready(function() {
-
           // fix menu when passed
           $('.masthead')
             .visibility({
@@ -50,12 +42,9 @@
               }
             })
           ;
-
           // create sidebar and attach to menu open
           $('.ui.sidebar')
-            .sidebar('attach events', '.toc.item')
-          ;
-
+            .sidebar('attach events', '.toc.item');
         })
       ;
     </script>
@@ -84,15 +73,14 @@
       <a class="item">About</a>
       <a class="item">Schedule</a>
       <%= link_to "Calendar", on_point_calendar_path, class: :item %>
-        <%= link_to "Pricing", on_point_pricing_path, class: :item %>
-      <a class="item">Sign in</a>
+      <%= link_to "Pricing", on_point_pricing_path, class: :item %>
+      <%= render "templates/loginout" %>
       <a class="item">Register</a>
     </div>
 
     <!-- Page Contents -->
     <div class="pusher">
       <div class="ui inverted vertical masthead center aligned segment landing_image">
-
         <div class="ui container">
           <div class="ui large secondary inverted pointing menu">
             <a class="toc item">
@@ -105,7 +93,6 @@
             <%= link_to "Pricing", on_point_pricing_path, class: :item %>
           </div>
         </div>
-
         <div class="ui text container">
           <h1 class="ui inverted header site_title">
             Keep It On Pointe
@@ -136,24 +123,17 @@
                 <a href="#" class="item">Package Pre-Order</a>
                 <a href="#" class="item">Favorite Moments</a>
                 <a href="#" class="item">How To Access</a>
-                <% unless current_user %>
-                  <%= link_to 'Site Login', on_point_login_path, class: :item %>
-                <% else %>
-                  <%= link_to 'Log out', sessions_destroy_path, method: :delete, data: { confirm: "Are you sure you want to log out?" }, class: :item %>
-                <% end %>
+                <%= render "templates/loginout" %>
               </div>
             </div>
             <div class="seven wide column">
               <h4 class="ui inverted header">Social Media</h4>
-
-
               <div class="ui inverted link list">
                 <a href="#" class="item"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i> Facebook</a>
                 <a href="#" class="item"><i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i> Twitter</a>
                 <a href="#" class="item"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i> Instagram</a>
                 <a href="#" class="item"><i class="fa fa-google-plus-square fa-lg" aria-hidden="true"></i> Google+</a>
               </div>
-
             </div>
           </div>
         </div>
