@@ -46,17 +46,7 @@ class SessionsController < ApplicationController
         "Decryption successfull..."
       end
 
-      if params[:on_point]
-        redirect_to on_point_path
-      else
-        stale_content?
-
-        # records current time for last visit
-        record_last_visit
-
-        # redirects to home with notice
-        redirect_to root_url, notice: notice
-      end
+      redirect_to root_url, notice: notice
     else
       redirect_to :back, notice: "Invalid username, email, or password"
     end

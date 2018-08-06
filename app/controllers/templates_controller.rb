@@ -14,7 +14,7 @@ class TemplatesController < ApplicationController
 
   def update
     if @item.update(body: params[:body])
-      redirect_to on_point_path
+      redirect_to root_url
     else
       redirect_to :back, notice: "Failed to update item..."
     end
