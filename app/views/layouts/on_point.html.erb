@@ -95,7 +95,7 @@
         </div>
         <div class="ui text container">
           <h1 class="ui inverted header site_title">
-            Keep It On Pointe
+            <%= item_with_link "header" %>
           </h1>
           <h2><%= item_with_link "slogan" %></h2>
           </br>
@@ -139,5 +139,15 @@
         </div>
       </div>
     </div>
+
+    <% unless cookies[:still_in_dev_wall_passed].present? %>
+      <%= link_to pass_wall_path, class: :still_in_dev_wall do %>
+        <div class="dark_card top_spacer inner_card_padding" align="center">
+          <p class="still_in_dev_wall_txt">
+            Click to continue...
+          </p>
+        </div>
+      <% end %>
+    <% end %>
   </body>
 </html>

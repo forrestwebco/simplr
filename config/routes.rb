@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'sample_blog', to: 'templates#sample_blog', as: 'sample_blog'
   get 'purecss', to: 'templates#purecss', as: 'purecss'
   get 'uikit', to: 'templates#uikit', as: 'uikit'
+  get 'pass_wall', to: 'templates#pass_wall', as: 'pass_wall'
 
   # on point CRUD paths
   get 'on_point_edit/:token', to: 'templates#edit', as: 'on_point_edit'

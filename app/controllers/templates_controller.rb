@@ -7,6 +7,11 @@ class TemplatesController < ApplicationController
 
   layout :resolve_layout
 
+  def pass_wall
+    cookies.permanent[:still_in_dev_wall_passed] = true
+    redirect_to root_url
+  end
+
   def update
     if @item.update(body: params[:body])
       redirect_to on_point_path
