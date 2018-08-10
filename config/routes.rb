@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'co', to: 'templates#index', as: 'forrest_web_co'
   get 'keep_it_on_pointe', to: 'templates#on_point', as: 'on_point'
   get 'pricing', to: 'templates#pricing', as: 'on_point_pricing'
-  get 'on_point_login', to: 'templates#login', as: 'on_point_login'
+  get 'login', to: 'templates#login', as: 'on_point_login'
   get 'semantic_ui', to: 'templates#semantic_ui', as: 'semantic_ui'
   get 'sample_blog', to: 'templates#sample_blog', as: 'sample_blog'
   get 'purecss', to: 'templates#purecss', as: 'purecss'
@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   get 'pass_wall', to: 'templates#pass_wall', as: 'pass_wall'
 
   # on point CRUD paths
-  get 'on_point_edit/:token', to: 'templates#edit', as: 'on_point_edit'
-  put 'on_point_update/:token', to: 'templates#update', as: 'on_point_update'
+  get 'item_edit/:token', to: 'templates#edit', as: 'on_point_edit'
+  put 'item_update/:token', to: 'templates#update', as: 'on_point_update'
 
   # google calendar api auth routing for On Point
   get 'calendar', to: 'templates#calendar', as: 'on_point_calendar'
