@@ -1,14 +1,14 @@
 <% unless current_user %>
-  <%= form_tag sessions_path, class: "ui form login_form_sm" do %>
+  <%= form_tag sessions_path, class: "ui form login_form_sm", id: :session_form do %>
     <%= hidden_field_tag :on_point, true %>
     <div class="field">
       <label>Username</label>
-      <%= text_field_tag :login, nil, placeholder: "Username", class: :dark_text_field, id: :login_field_1 %>
+      <%= text_field_tag :login, nil, placeholder: "Username" %>
     </div>
 
     <div class="field">
       <label>Passphrase</label>
-      <%= password_field_tag :password, nil, placeholder: "Passphrase", class: :dark_text_field, id: :login_field_2 %>
+      <%= password_field_tag :password, nil, placeholder: "Passphrase" %>
     </div>
 
     <div class="field">
@@ -21,6 +21,22 @@
     <button class="ui button" type="submit">Log in</button>
 
   <% end %>
+
+  <script>
+    $(document).ready(function() {
+      setTimeout(scroll_to_form, 500);
+    });
+
+    function scroll_to_form() {
+      var session_form = $("#session_form");
+
+      $('html, body').animate({
+        scrollTop: ($(session_form).offset().top)
+      }, 500);
+
+      console.log(edit_form);
+    }
+  </script>
 <% else %>
   <%= link_to on_point_path do %>
     <div class="ui message">
