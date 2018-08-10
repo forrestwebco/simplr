@@ -1,4 +1,10 @@
 <% if current_user %>
+  <script>
+    $(document).ready(function() {
+      alert($("#edit_form"));
+      $("#edit_form").animate({ scrollTop: $(document).height() }, 500);
+    });
+  </script>
   <%= form_tag on_point_update_path(@item.unique_token), method: :put, class: "ui form", id: :edit_form do %>
     <%= hidden_field_tag :on_point, true %>
 
@@ -10,8 +16,4 @@
     <button class="ui button" type="submit">Save</button>
 
   <% end %>
-  
-  <script>
-    $("#edit_form").animate({ scrollTop: $(document).height() }, 500);
-  </script>
 <% end %>
