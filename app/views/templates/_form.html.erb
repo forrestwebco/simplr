@@ -12,17 +12,15 @@
 
   <script>
     $(document).ready(function() {
-      setTimeout(scroll_to_form, 1000);
+      setTimeout(scroll_to_form, 500);
     });
 
     function scroll_to_form() {
       var edit_form = $("#edit_form");
 
       $('html, body').animate({
-        scrollTop: ($(edit_form).offset().top)
+        scrollTop: ($(edit_form).offset().top - 55)
       }, 500);
-
-      console.log(edit_form);
     }
   </script>
 <% end %>
