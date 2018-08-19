@@ -198,6 +198,10 @@
   max-width: 500px;
 }
 
+.max_width_sm {
+  max-width: 80%;
+}
+
 // development wall
 
 @mixin modal {
@@ -232,6 +236,11 @@
   margin: 0 auto;
   margin-bottom: 12.5px;
   width: 94.5%;
+}
+
+.card {
+  @include card;
+  box-shadow: 0 0 1.5px rgba(0, 0, 0, 0.25);
 }
 
 .dark_card {

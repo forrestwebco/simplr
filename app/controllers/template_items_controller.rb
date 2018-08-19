@@ -8,6 +8,7 @@ class TemplateItemsController < ApplicationController
   layout :resolve_layout
 
   def calendar
+    @event = Event.new
     @events = Event.all.reverse
   end
 

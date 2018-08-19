@@ -1,14 +1,17 @@
 <% if current_user %>
-  <%= form_for(@item, html: { class: "ui form", id: :edit_form }) do |f| %>
-    <%= hidden_field_tag :on_point, true %>
-
+  <%= form_for(@event, html: { class: "ui form", id: :new_event_form }) do |f| %>
     <div class="field">
-      <label>Text</label>
-      <%= f.text_area :body, placeholder: "Text" %>
+      <label>Title</label>
+      <%= f.text_field :title, placeholder: "Title" %>
     </div>
 
     <div class="field">
-      <label>Image</label>
+      <label>Description</label>
+      <%= f.text_area :body, placeholder: "Description" %>
+    </div>
+
+    <div class="field">
+      <label>Attach an image</label>
       <%= f.file_field :image %>
     </div>
 
@@ -19,8 +22,10 @@
     $(document).ready(function() {
       setTimeout(scroll_to_form, 500);
     });
+
     function scroll_to_form() {
-      var edit_form = $("#edit_form");
+      var edit_form = $("#new_event_form");
+
       $('html, body').animate({
         scrollTop: ($(edit_form).offset().top - 55)
       }, 500);

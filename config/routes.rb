@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :games
   resources :reviews
   resources :template_items
+  resources :events
 
   # templates for clients
   get 'lil_c', to: 'template_items#lil_c', as: 'lil_c'
