@@ -31,8 +31,8 @@ gem 'bcrypt'
 #gem 'gpgme'
 
 # datepicker
-# gem 'date_picker'
-# gem 'pickadate-rails'
+gem 'date_picker'
+gem 'pickadate-rails'
 
 # QR code generation
 gem 'rqrcode'

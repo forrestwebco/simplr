@@ -27,10 +27,8 @@
     $(document).ready(function() {
       setTimeout(scroll_to_form, 500);
     });
-
     function scroll_to_form() {
       var edit_form = $("#new_event_form");
-
       $('html, body').animate({
         scrollTop: ($(edit_form).offset().top - 55)
       }, 500);
