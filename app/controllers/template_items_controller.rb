@@ -7,6 +7,10 @@ class TemplateItemsController < ApplicationController
 
   layout :resolve_layout
 
+  def calendar
+    @events = Event.all.reverse
+  end
+
   def pass_wall
     cookies.permanent[:still_in_dev_wall_passed] = true
     redirect_to root_url
