@@ -1,5 +1,6 @@
 <% if current_user %>
   <%= form_for(@event, html: { class: "ui form", id: :new_event_form }) do |f| %>
+    <h4 class="ui dividing header">Schedule an Event</h4>
     <div class="field">
       <label>Title</label>
       <%= f.text_field :title, placeholder: "Title" %>
@@ -13,6 +14,10 @@
     <div class="field">
       <label>Attach an image</label>
       <%= f.file_field :image %>
+    </div>
+
+    <div class="field">
+      <%= f.datetime_picker :start_date %>
     </div>
 
     <button class="ui button" type="submit">Save</button>

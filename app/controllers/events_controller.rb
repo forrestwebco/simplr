@@ -1,8 +1,11 @@
 class EventsController < ApplicationController
   before_action :set_templating, only: [:show]
   before_action :set_on_point, only: [:show]
+  
   before_action :check_auth, except: [:show]
-  before_action :set_event, except: [:show]
+  before_action :set_event, except: [:create]
+
+  layout :resolve_layout
 
   def create
     @event = Event.new(event_params)
@@ -33,7 +36,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:template_item).permit(:title, :body, :image, :start_date)
+    params.require(:event).permit(:title, :body, :image, :start_date)
   end
 
   def set_event
@@ -45,5 +48,22 @@ class EventsController < ApplicationController
       @event ||= Event.find_by_id(params[:id])
     end
     redirect_to '/404' unless @event
+  end
+
+  def set_on_point
+    @on_point = true
+  end
+
+  def set_templating
+    @templating = true
+  end
+
+  def resolve_layout
+    case action_name.to_sym
+    when :show
+      "on_point"
+    else
+      "application"
+    end
   end
 end

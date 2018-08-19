@@ -25,5 +25,8 @@
 // Loads all Semantic javascripts
 //= require semantic-ui
 //= require uikit
-//= require moment 
+//= require moment
 //= require fullcalendar
+//= require pickadate/picker # required
+//= require pickadate/picker.date # for the date picker
+//= require pickadate/picker.time # for the time picker
