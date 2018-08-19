@@ -1,10 +1,7 @@
-/*
-  *= require pickadate/default
-  *= require pickadate/default.date
-  *= require pickadate/default.time
-*/
-
 @import "semantic-ui";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 .hidden.menu {
   display: none;
@@ -174,4 +171,92 @@
   .current-month {}
 
   .has-events {}
+}
+
+// pricing css stuff
+
+.box_stuff {
+  float: left;
+  width: 24.2%;
+  height: 500px;
+  background: blue;
+  margin: .4% .4%;
+}
+
+.box_container {
+  background: black;
+  width: 1200px;
+  min-height: 50px;
+  overflow: auto;
+  padding: .4% .4%;
+}
+
+// login
+
+.login_form_sm {
+  max-width: 500px;
+}
+
+.max_width_sm {
+  max-width: 80%;
+}
+
+// development wall
+
+@mixin modal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  // to stop margins from collapsing
+  overflow: auto;
+}
+
+.still_in_dev_wall {
+  @include modal;
+  background: black;
+  z-index: 30;
+}
+
+.still_in_dev_wall_txt {
+  color: white;
+}
+
+// almost all of this below needs to be resolved with pipeline, already written elsewhere
+
+@mixin card {
+  transition: all .4s ease-in-out;
+  position: relative;
+  padding: 15px 7.5px;
+  background: white;
+  max-width: 550px;
+  margin: 0 auto;
+  margin-bottom: 12.5px;
+  width: 94.5%;
+}
+
+.card {
+  @include card;
+  box-shadow: 0 0 1.5px rgba(0, 0, 0, 0.25);
+}
+
+.dark_card {
+  @include card;
+  background: rgb(10, 10, 10);
+  color: white;
+}
+
+.white_link {
+  color: white;
+}
+
+.top_spacer {
+  margin-top: 15%;
+}
+
+.inner_card_padding {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
