@@ -35,7 +35,14 @@ class TemplateItemsController < ApplicationController
   end
 
   def set_item
-    @item = TemplateItem.find_by_unique_token params[:token]
+    if params[:token]
+      @item = TemplateItem.find_by_unique_token(params[:token])
+      @item ||= TemplateItem.find_by_id(params[:token])
+    else
+      @item = TemplateItem.find_by_unique_token(params[:id])
+      @item ||= TemplateItem.find_by_id(params[:id])
+    end
+    redirect_to '/404' unless @item
   end
 
   def client_options
@@ -68,7 +75,7 @@ class TemplateItemsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def item_params
-    params.require(:template_items).permit(:body, :image)
+    params.require(:template_item).permit(:body, :image)
   end
 end
 
