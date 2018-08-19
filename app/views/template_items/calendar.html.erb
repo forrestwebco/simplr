@@ -1,9 +1,11 @@
   <div class="ui vertical stripe segment">
     <div class="ui middle aligned stackable grid container">
       <div class="row">
-        <div class="card">
-          <%= render "events/form" %>
-        </div>
+        <% if current_user %>
+          <div class="card">
+            <%= render "events/form" %>
+          </div>
+        <% end %>
         <% for event in @events %>
           <%= render "events/card", event: event %>
         <% end %>
