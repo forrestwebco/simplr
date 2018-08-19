@@ -4,34 +4,35 @@ Rails.application.routes.draw do
   resources :orders
   resources :games
   resources :reviews
+  resources :template_items
 
   # templates for clients
-  get 'lil_c', to: 'templates#lil_c', as: 'lil_c'
-  get 'co', to: 'templates#index', as: 'forrest_web_co'
+  get 'lil_c', to: 'template_items#lil_c', as: 'lil_c'
+  get 'co', to: 'template_items#index', as: 'forrest_web_co'
   get 'keep_it_on_pointe', to: 'templates#on_point', as: 'on_point'
-  get 'pricing', to: 'templates#pricing', as: 'on_point_pricing'
-  get 'login', to: 'templates#login', as: 'on_point_login'
-  get 'semantic_ui', to: 'templates#semantic_ui', as: 'semantic_ui'
-  get 'sample_blog', to: 'templates#sample_blog', as: 'sample_blog'
-  get 'purecss', to: 'templates#purecss', as: 'purecss'
-  get 'uikit', to: 'templates#uikit', as: 'uikit'
-  get 'pass_wall', to: 'templates#pass_wall', as: 'pass_wall'
+  get 'pricing', to: 'template_items#pricing', as: 'on_point_pricing'
+  get 'login', to: 'template_items#login', as: 'on_point_login'
+  get 'semantic_ui', to: 'template_items#semantic_ui', as: 'semantic_ui'
+  get 'sample_blog', to: 'template_items#sample_blog', as: 'sample_blog'
+  get 'purecss', to: 'template_items#purecss', as: 'purecss'
+  get 'uikit', to: 'template_items#uikit', as: 'uikit'
+  get 'pass_wall', to: 'template_items#pass_wall', as: 'pass_wall'
 
   # on point CRUD paths
-  get 'item_edit/:token', to: 'templates#edit', as: 'on_point_edit'
-  put 'item_update/:token', to: 'templates#update', as: 'on_point_update'
+  get 'item_edit/:token', to: 'template_items#edit', as: 'on_point_edit'
+  #put 'item_update/:token', to: 'template_items#update', as: 'on_point_update'
 
   # google calendar api auth routing for On Point
-  get 'calendar', to: 'templates#calendar', as: 'on_point_calendar'
-  get 'redirect', to: 'templates#redirect', as: 'redirect'
-  get 'callback', to: 'templates#callback', as: 'callback'
+  get 'calendar', to: 'template_items#calendar', as: 'on_point_calendar'
+  get 'redirect', to: 'template_items#redirect', as: 'redirect'
+  get 'callback', to: 'template_items#callback', as: 'callback'
   # has regex for calendar_id containing a .com at the end
-  get 'calendar_events/:calendar_id', to: 'templates#events', as: 'calendar_events', calendar_id: /[^\/]+/
+  get 'calendar_events/:calendar_id', to: 'template_items#events', as: 'calendar_events', calendar_id: /[^\/]+/
   # has regex for calendar_id containing a .com at the end
-  post 'new_calendar_event/:calendar_id', to: 'templates#new_event', as: 'new_calendar_event', calendar_id: /[^\/]+/
+  post 'new_calendar_event/:calendar_id', to: 'template_items#new_event', as: 'new_calendar_event', calendar_id: /[^\/]+/
 
   # for testing and learning purposes
-  get 'example_stuff', to: 'templates#example_stuff', as: 'example_stuff'
+  get 'example_stuff', to: 'template_items#example_stuff', as: 'example_stuff'
 
   # wikis
   get 'book', to: 'wikis#index', as: 'book'
@@ -345,7 +346,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'templates#on_point'
+  root 'template_items#on_point'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

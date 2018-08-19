@@ -1,5 +1,4 @@
 class TemplateItem < ApplicationRecord
-  validates_presence_of :body
   validates_presence_of :tag
 
   before_create :gen_unique_token
