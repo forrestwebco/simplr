@@ -56,14 +56,16 @@
         <a class="item">Schedule</a>
         <%= link_to "Calendar", on_point_calendar_path, class: :item %>
         <%= link_to "Pricing", on_point_pricing_path, class: :item %>
-        <div class="right menu">
-          <div class="item">
-            <a class="ui button">Sign in</a>
+        <% unless current_user %>
+          <div class="right menu">
+            <div class="item">
+              <%= link_to "Sign in", on_point_login_path, class: "ui button" %>
+            </div>
+            <div class="item">
+              <a class="ui primary button get_started_button">Register</a>
+            </div>
           </div>
-          <div class="item">
-            <a class="ui primary button get_started_button">Register</a>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
 
@@ -75,7 +77,9 @@
       <%= link_to "Calendar", on_point_calendar_path, class: :item %>
       <%= link_to "Pricing", on_point_pricing_path, class: :item %>
       <%= render "template_items/loginout" %>
-      <a class="item">Register</a>
+      <% unless current_user %>
+        <a class="item">Register</a>
+      <% end %>
     </div>
 
     <!-- Page Contents -->

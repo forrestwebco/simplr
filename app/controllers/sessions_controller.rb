@@ -39,12 +39,6 @@ class SessionsController < ApplicationController
       end
       cookies.permanent[:logged_in_before] = true
       cookies.permanent[:human] = true
-      # sets returning_user cookie with notice if its been a while
-      notice = if returning_user?
-        "Welcome back, #{@user.name}"
-      else
-        "Decryption successfull..."
-      end
 
       redirect_to root_url, notice: notice
     else
