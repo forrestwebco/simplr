@@ -17,7 +17,7 @@
     </div>
 
     <div class="field">
-      <%= f.datetime_picker :start_date %>
+      <%= f.datetime_picker :start_date, class: :datepicker, id: "flatpickr-input" %>
     </div>
 
     <button class="ui button" type="submit">Save</button>
@@ -25,6 +25,10 @@
 
   <script>
     $(document).ready(function() {
+      flatpickr('#flatpickr-input');
+      // initializes datepicker
+      $('.datepicker').pickadate();
+      // focuses to form by scrolling
       setTimeout(scroll_to_form, 500);
     });
     function scroll_to_form() {

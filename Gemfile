@@ -8,7 +8,7 @@ source 'https://rubygems.org'
 #gem 'stripe'
 #gem 'braintree' # paypal service
 gem 'money-rails'
-#gem 'activemerchant'
+# gem 'activemerchant'
 # gem 'paypal-sdk-rest'
 # gem 'bitcoin_payable'
 
@@ -33,6 +33,7 @@ gem 'bcrypt'
 # datepicker
 gem 'date_picker'
 gem 'pickadate-rails'
+gem 'flatpickr_rails'
 
 # QR code generation
 gem 'rqrcode'
@@ -64,6 +65,9 @@ gem "simple_captcha2"
 
 # fonts and glyphs
 gem 'font-awesome-sass', '~> 4.0'
+
+# package management
+gem 'bower-rails'
 
 # bootstrap
 #gem 'twitter-bootstrap-rails'
