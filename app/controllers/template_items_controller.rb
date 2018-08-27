@@ -3,9 +3,16 @@ class TemplateItemsController < ApplicationController
   before_action :set_on_point, only: [:calendar, :events, :on_point, :pricing, :admin, :example_stuff, :login, :edit, :update]
 
   before_action :set_item, only: [:edit, :update]
-  before_action :check_auth, only: [:edit, :update]
+  before_action :check_auth, only: [:edit, :update, :gen_item]
 
   layout :resolve_layout
+  
+  def gen_item
+    @item = TemplateItem.new tag: params[:tag]
+    if @item.save
+      redirect_to on_point_edit_path(@item.unique_token)
+    end
+  end
   
   def pricing
     @priced_items = TemplateItem.priced_items.reverse

@@ -32,6 +32,9 @@ Rails.application.routes.draw do
   # has regex for calendar_id containing a .com at the end
   post 'new_calendar_event/:calendar_id', to: 'template_items#new_event', as: 'new_calendar_event', calendar_id: /[^\/]+/
 
+  # creating priced items
+  post 'gen_item/:tag', to: 'template_items#gen_item', as: 'gen_item'
+
   # for testing and learning purposes
   get 'example_stuff', to: 'template_items#example_stuff', as: 'example_stuff'
 
