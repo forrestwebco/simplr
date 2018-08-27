@@ -32,7 +32,9 @@
               <td>
                 <h4 class="ui image header">
                   <div class="content">
-                    <div class="sub header"><%= link_to "New class", root_url %>
+                    <div class="sub header"><%= link_to "New class",
+                      gen_item_path(tag: "priced_item_#{TemplateItem.priced_items.size + 1}",
+                      item_type: :priced_item), method: :post %>
                   </div>
                 </h4>
               </td>

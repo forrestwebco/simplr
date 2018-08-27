@@ -9,6 +9,7 @@ class TemplateItemsController < ApplicationController
   
   def gen_item
     @item = TemplateItem.new tag: params[:tag]
+    @item.item_type = params[:item_type]
     if @item.save
       redirect_to on_point_edit_path(@item.unique_token)
     end
