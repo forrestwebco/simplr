@@ -4,6 +4,8 @@ class TemplateItem < ApplicationRecord
   before_create :gen_unique_token
 
   mount_uploader :image, ImageUploader
+  
+  scope :priced_items, -> { where item_type: "priced" }
 
   private
 

@@ -10,62 +10,36 @@
           <th>Prices</th>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <h4 class="ui image header">
-                <img src="assets/images/wireframe/square-image.png" class="ui mini rounded image">
-                <div class="content">
-                  Lena
-                  <div class="sub header">Human Resources
-                </div>
-              </h4>
-            </td>
-            <td>
-              22
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h4 class="ui image header">
-                <img src="assets/images/wireframe/square-image.png" class="ui mini rounded image">
-                <div class="content">
-                  Matthew
-                  <div class="sub header">Fabric Design
-                </div>
-              </h4>
-            </td>
-            <td>
-              15
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h4 class="ui image header">
-                <img src="assets/images/wireframe/square-image.png" class="ui mini rounded image">
-                <div class="content">
-                  Lindsay
-                  <div class="sub header">Entertainment
-                </div>
-              </h4>
-            </td>
-            <td>
-              12
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h4 class="ui image header">
-                <img src="assets/images/wireframe/square-image.png" class="ui mini rounded image">
-                <div class="content">
-                  Mark
-                  <div class="sub header">Executive
-                </div>
-              </h4>
-            </td>
-            <td>
-              11
-            </td>
-          </tr>
+          <% for item in @priced_items %>
+            <tr>
+              <td>
+                <h4 class="ui image header">
+                  <%= image_tag item.image, class: "ui mini rounded image" %>
+                  <div class="content">
+                    <%= item.title %>
+                    <div class="sub header"><%= item.body %>
+                  </div>
+                </h4>
+              </td>
+              <td>
+                <%= item.price %>
+              </td>
+            </tr>
+          <% end %>
+          
+          <% if current_user %>
+            <tr>
+              <td>
+                <h4 class="ui image header">
+                  <div class="content">
+                    <div class="sub header"><%= link_to "New class", root_url %>
+                  </div>
+                </h4>
+              </td>
+              <td>
+              </td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>

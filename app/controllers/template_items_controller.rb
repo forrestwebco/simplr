@@ -6,6 +6,10 @@ class TemplateItemsController < ApplicationController
   before_action :check_auth, only: [:edit, :update]
 
   layout :resolve_layout
+  
+  def pricing
+    @priced_items = TemplateItem.priced_items.reverse
+  end
 
   def calendar
     @event = Event.new
