@@ -1,19 +1,49 @@
 <!-- https://www.sharefile.com/pricing?aid=208144752149&src=google&kw=sharefile%20pricing&gclid=CjwKCAjwy_XaBRAWEiwApfjKHh6S343NI5zLTy7NpDuiH9jgeMi9ukDnMenV8iRsdFr5Vds_MZPngRoC2a8QAvD_BwE-->
 <div class="ui vertical stripe segment">
-  <div class="row" align="center">
-	<h1 class="masthead ui header blue centered">
-		Plans and Pricing
-	</h1>
-	  <div class="box_container centered">
-		<div class="box_stuff"></div>
-		<div class="box_stuff"></div>
-		<div class="box_stuff"></div>
-		<div class="box_stuff"></div>
-      </div>
-  </div>
-  <div class="ui middle aligned stackable grid container">
-    <div class="row" >
+  <div class="row">     
+    <h3 class="ui center aligned header">Class Pricing</h3>
 
+    <div class="ui container">
+      <table class="ui celled table">
+        <thead>
+          <th>Class</th>
+          <th>Prices</th>
+        </thead>
+        <tbody>
+          <% for item in @priced_items %>
+            <tr>
+              <td>
+                <h4 class="ui image header">
+                  <%= image_tag item.image, class: "ui mini rounded image" %>
+                  <div class="content">
+                    <%= item.title %>
+                    <div class="sub header"><%= item.body %>
+                  </div>
+                </h4>
+              </td>
+              <td>
+                <%= item.price %>
+              </td>
+            </tr>
+          <% end %>
+          
+          <% if current_user %>
+            <tr>
+              <td>
+                <h4 class="ui image header">
+                  <div class="content">
+                    <div class="sub header"><%= link_to "New class",
+                      gen_item_path(tag: "priced_item_#{TemplateItem.priced_items.size + 1}",
+                      item_type: :priced_item), method: :post %>
+                  </div>
+                </h4>
+              </td>
+              <td>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
-  </div> 
+  </div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180819182511) do
+ActiveRecord::Schema.define(version: 20180827174458) do
 
   create_table "arts", force: :cascade do |t|
     t.integer  "user_id"
@@ -417,6 +417,8 @@ ActiveRecord::Schema.define(version: 20180819182511) do
     t.string   "unique_token"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.float    "price"
+    t.string   "item_type"
   end
 
   create_table "tests", force: :cascade do |t|

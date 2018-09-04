@@ -1,19 +1,21 @@
 <% if current_user %>
-  <%= form_for(@item, html: { class: "ui form", id: :edit_form }) do |f| %>
-    <%= hidden_field_tag :on_point, true %>
+  <div class="card">
+    <%= form_for(@item, html: { class: "ui form", id: :edit_form }) do |f| %>
+      <%= hidden_field_tag :on_point, true %>
 
-    <div class="field">
-      <label>Text</label>
-      <%= f.text_area :body, placeholder: "Text" %>
-    </div>
+      <div class="field">
+        <label>Text</label>
+        <%= f.text_area :body, placeholder: "Text" %>
+      </div>
 
-    <div class="field">
-      <label>Image</label>
-      <%= f.file_field :image %>
-    </div>
+      <div class="field">
+        <label>Image</label>
+        <%= f.file_field :image %>
+      </div>
 
-    <button class="ui button" type="submit">Save</button>
-  <% end %>
+      <button class="ui button" type="submit">Save</button>
+    <% end %>
+  </div>
 
   <script>
     $(document).ready(function() {
