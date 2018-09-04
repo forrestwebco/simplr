@@ -12,12 +12,12 @@
     </div>
 
     <div class="field">
-      <label>Attach an image</label>
-      <%= f.file_field :image %>
+      <%= f.datetime_picker :start_date, class: :datepicker, id: "flatpickr-input" %>
     </div>
 
     <div class="field">
-      <%= f.datetime_picker :start_date, class: :datepicker, id: "flatpickr-input" %>
+      <label>Attach an image</label>
+      <%= f.file_field :image %>
     </div>
 
     <button class="ui button" type="submit">Save</button>
