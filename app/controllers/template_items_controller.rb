@@ -33,7 +33,7 @@ class TemplateItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to root_url
     else
-      redirect_to :back, notice: "Failed to update item..."
+      redirect_to on_point_edit_path(@item.unique_token), notice: "Failed to update item..."
     end
   end
 
