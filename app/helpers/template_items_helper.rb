@@ -9,7 +9,7 @@ module TemplateItemsHelper
     # sets displayed img to item image or placeholder dance img if none
     img = (item and item.image_url) ? item.image_url : "on_point/dance.png"
     # adds image tag to be rendered
-    editable << image_tag(img, class: (_class ? _class : "ui large rounded image"))
+    editable << image_tag(img, class: (_class ? _class[:class] : "ui large rounded image"))
     # add edit link to image tag if signed in and item found/created
     editable << link_to("Edit Image", on_point_edit_path(item.unique_token)) if current_user and item
     # sanitizes string to safely render to html

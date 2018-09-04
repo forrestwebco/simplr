@@ -26,14 +26,16 @@
   <div class="ui equal width stackable internally celled grid">
     <div class="center aligned row">
       <div class="column">
-        <h3>"What a Company"</h3>
-        <p>That is what they all say about us</p>
+        <h3><%= item_with_link "quote_1_title" %></h3>
+        <p><%= item_with_link "quote_1_text" %></p>
       </div>
       <div class="column">
-        <h3>"I shouldn't have gone with their competitor."</h3>
+        <h3><%= item_with_link "quote_2_title" %></h3>
         <p>
-          <img src="https://semantic-ui.com/examples/assets/images/avatar/nan.jpg" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys
+          <%= item_img_with_link "quote_2_img", class: "ui avatar image" %>
+          <b><%= item_with_link "quote_2_name" %></b> <%= item_with_link "quote_2_whois" %>
         </p>
+
       </div>
     </div>
   </div>
