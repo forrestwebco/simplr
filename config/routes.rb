@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'purecss', to: 'template_items#purecss', as: 'purecss'
   get 'uikit', to: 'template_items#uikit', as: 'uikit'
   get 'pass_wall', to: 'template_items#pass_wall', as: 'pass_wall'
+  get 'new_student_packet', to: 'template_items#new_student_packet', as: 'new_student_packet'
 
   # on point CRUD paths
   get 'item_edit/:token', to: 'template_items#edit', as: 'on_point_edit'

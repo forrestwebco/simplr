@@ -1,12 +1,12 @@
 class TemplateItemsController < ApplicationController
   before_action :set_templating, only: [:semantic_ui, :uikit, :purecss, :sample_blog]
-  before_action :set_on_point, only: [:calendar, :events, :on_point, :pricing, :admin, :example_stuff, :login, :edit, :update]
+  before_action :set_on_point, only: [:calendar, :events, :on_point, :pricing, :admin, :example_stuff, :login, :edit, :update, :new_student_packet]
 
   before_action :set_item, only: [:edit, :update]
   before_action :check_auth, only: [:edit, :update, :gen_item]
 
   layout :resolve_layout
-  
+
   def gen_item
     @item = TemplateItem.new tag: params[:tag]
     @item.item_type = params[:item_type]
@@ -14,7 +14,7 @@ class TemplateItemsController < ApplicationController
       redirect_to on_point_edit_path(@item.unique_token)
     end
   end
-  
+
   def pricing
     @priced_items = TemplateItem.priced_items.reverse
   end
@@ -77,6 +77,8 @@ class TemplateItemsController < ApplicationController
     case action_name.to_sym
     when :on_point, :calendar, :events, :pricing, :admin, :example_stuff, :login, :edit
       "on_point"
+    when :new_student_packet
+      "blank"
     else
       "application"
     end

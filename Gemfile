@@ -88,6 +88,9 @@ gem 'passphrase'
 # markdown parsing
 gem 'redcarpet'
 
+# pdf viewer
+gem 'pdfjs_viewer-rails'
+
 # charts
 gem 'chartkick'
 
