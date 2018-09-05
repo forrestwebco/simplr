@@ -1,15 +1,20 @@
   <div class="ui vertical stripe segment">
     <div class="ui middle aligned stackable grid container">
+      <% unless current_user %>
+        <div class="row">
+          <iframe src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+      <% end %>
+
       <% if current_user %>
         <div class="row">
           <div class="card">
             <%= render "events/form" %>
           </div>
         </div>
-
-      <h4 class="ui horizontal header divider">
-        <a href="#">Events Scheduled</a>
-      </h4>
+        <h4 class="ui horizontal header divider">
+          <a href="#">Events Scheduled</a>
+        </h4>
       <% end %>
       <div class="row">
         <% for event in @events %>
