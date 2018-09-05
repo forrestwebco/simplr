@@ -1,8 +1,4 @@
 module TemplateItemsHelper
-  def link_item_with_link tag
-    true
-  end
-
   def item_img_with_link tag, _class=nil
     # initializes editable string
     editable = ""
@@ -33,6 +29,23 @@ module TemplateItemsHelper
 
     editable << item.body + " "
     editable << link_to("Edit", on_point_edit_path(item.unique_token)) if current_user
+
+    editable.html_safe
+  end
+
+  def item_url_with_link tag
+    editable = ""
+
+    item = TemplateItem.find_by_tag tag
+
+    # creates new placeholder item if ones not been set
+    unless item
+      item = TemplateItem.new body: "This template item has not been set.", tag: tag
+      item.save
+    end
+
+    editable << link_to(item.body, item.url) + " "
+    editable << link_to(" Edit", on_point_edit_path(item.unique_token)) if current_user
 
     editable.html_safe
   end

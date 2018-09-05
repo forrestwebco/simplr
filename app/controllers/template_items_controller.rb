@@ -102,7 +102,7 @@ class TemplateItemsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def item_params
-    params.require(:template_item).permit(:body, :image)
+    params.require(:template_item).permit(:body, :image, :url)
   end
 end
 

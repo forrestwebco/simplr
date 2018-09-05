@@ -53,7 +53,7 @@
       <div class="ui container">
         <%= link_to "Home", root_url, class: "active item" %>
         <a class="item">About</a>
-        <a class="item">Schedule</a>
+        <%= link_to "Schedule", on_point_schedule_path, class: :item %>
         <%= link_to "Calendar", on_point_calendar_path, class: :item %>
         <%= link_to "Pricing", on_point_pricing_path, class: :item %>
         <% unless current_user %>
