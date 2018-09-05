@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'new_student_packet', to: 'template_items#new_student_packet', as: 'new_student_packet'
   get 'schedule', to: 'template_items#schedule', as: 'on_point_schedule'
   get 'show_item/:tag', to: 'template_items#show', as: 'show_item'
+  get 'about', to: 'template_items#about', as: 'on_point_about'
 
   # on point CRUD paths
   get 'item_edit/:token', to: 'template_items#edit', as: 'on_point_edit'

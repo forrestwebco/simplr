@@ -1,6 +1,6 @@
 class TemplateItemsController < ApplicationController
   before_action :set_templating, only: [:semantic_ui, :uikit, :purecss, :sample_blog]
-  before_action :set_on_point, only: [:calendar, :events, :on_point, :pricing, :admin, :example_stuff, :login, :edit, :update, :new_student_packet, :schedule, :show]
+  before_action :set_on_point, only: [:calendar, :events, :on_point, :pricing, :admin, :example_stuff, :login, :edit, :update, :new_student_packet, :schedule, :show, :about]
 
   before_action :set_item, only: [:show, :edit, :update]
   before_action :check_auth, only: [:edit, :update, :gen_item]
@@ -83,7 +83,7 @@ class TemplateItemsController < ApplicationController
 
   def resolve_layout
     case action_name.to_sym
-    when :on_point, :calendar, :events, :pricing, :admin, :example_stuff, :login, :edit, :schedule, :show
+    when :on_point, :calendar, :events, :pricing, :admin, :example_stuff, :login, :edit, :schedule, :show, :about
       "on_point"
     when :new_student_packet
       "blank"

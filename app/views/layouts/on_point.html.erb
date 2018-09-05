@@ -52,7 +52,7 @@
     <div class="ui large top fixed hidden menu">
       <div class="ui container">
         <%= link_to "Home", root_url, class: "active item" %>
-        <a class="item">About</a>
+        <%= link_to "About", on_point_about_path, class: :item %>
         <%= link_to "Schedule", on_point_schedule_path, class: :item %>
         <%= link_to "Calendar", on_point_calendar_path, class: :item %>
         <%= link_to "Pricing", on_point_pricing_path, class: :item %>
@@ -72,7 +72,7 @@
     <!-- Sidebar Menu -->
     <div class="ui vertical inverted sidebar menu">
       <%= link_to "Home", root_url, class: :item %>
-      <a class="item">About</a>
+      <%= link_to "About", on_point_about_path, class: :item %>
       <%= link_to "Schedule", on_point_schedule_path, class: :item %>
       <%= link_to "Calendar", on_point_calendar_path, class: :item %>
       <%= link_to "Pricing", on_point_pricing_path, class: :item %>
@@ -91,7 +91,7 @@
               <i class="sidebar icon"></i>
             </a>
             <%= link_to "Home", root_url, class: "active item" %>
-            <a class="item">About</a>
+            <%= link_to "About", on_point_about_path, class: :item %>
             <%= link_to "Schedule", on_point_schedule_path, class: :item %>
             <%= link_to "Calendar", on_point_calendar_path, class: :item %>
             <%= link_to "Pricing", on_point_pricing_path, class: :item %>
