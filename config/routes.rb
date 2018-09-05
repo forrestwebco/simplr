@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'uikit', to: 'template_items#uikit', as: 'uikit'
   get 'pass_wall', to: 'template_items#pass_wall', as: 'pass_wall'
   get 'new_student_packet', to: 'template_items#new_student_packet', as: 'new_student_packet'
+  get 'schedule', to: 'template_items#schedule', as: 'on_point_schedule'
+  get 'show_item/:tag', to: 'template_items#show', as: 'show_item'
 
   # on point CRUD paths
   get 'item_edit/:token', to: 'template_items#edit', as: 'on_point_edit'

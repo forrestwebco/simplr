@@ -1,11 +1,15 @@
 class TemplateItemsController < ApplicationController
   before_action :set_templating, only: [:semantic_ui, :uikit, :purecss, :sample_blog]
-  before_action :set_on_point, only: [:calendar, :events, :on_point, :pricing, :admin, :example_stuff, :login, :edit, :update, :new_student_packet]
+  before_action :set_on_point, only: [:calendar, :events, :on_point, :pricing, :admin, :example_stuff, :login, :edit, :update, :new_student_packet, :schedule, :show]
 
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [:show, :edit, :update]
   before_action :check_auth, only: [:edit, :update, :gen_item]
 
   layout :resolve_layout
+
+  def show
+    @tag = @item.tag
+  end
 
   def gen_item
     @item = TemplateItem.new tag: params[:tag]
@@ -52,7 +56,11 @@ class TemplateItemsController < ApplicationController
   end
 
   def set_item
-    if params[:token]
+    if params[:tag]
+      @item = TemplateItem.find_by_tag(params[:tag])
+      @item ||= TemplateItem.find_by_unique_token(params[:tag])
+      @item ||= TemplateItem.find_by_id(params[:tag])
+    elsif params[:token]
       @item = TemplateItem.find_by_unique_token(params[:token])
       @item ||= TemplateItem.find_by_id(params[:token])
     else
@@ -75,7 +83,7 @@ class TemplateItemsController < ApplicationController
 
   def resolve_layout
     case action_name.to_sym
-    when :on_point, :calendar, :events, :pricing, :admin, :example_stuff, :login, :edit
+    when :on_point, :calendar, :events, :pricing, :admin, :example_stuff, :login, :edit, :schedule, :show
       "on_point"
     when :new_student_packet
       "blank"

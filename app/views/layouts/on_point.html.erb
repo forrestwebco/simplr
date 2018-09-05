@@ -73,7 +73,7 @@
     <div class="ui vertical inverted sidebar menu">
       <%= link_to "Home", root_url, class: :item %>
       <a class="item">About</a>
-      <a class="item">Schedule</a>
+      <%= link_to "Schedule", on_point_schedule_path, class: :item %>
       <%= link_to "Calendar", on_point_calendar_path, class: :item %>
       <%= link_to "Pricing", on_point_pricing_path, class: :item %>
       <%= render "template_items/loginout" %>
@@ -92,7 +92,7 @@
             </a>
             <%= link_to "Home", root_url, class: "active item" %>
             <a class="item">About</a>
-            <a class="item">Schedule</a>
+            <%= link_to "Schedule", on_point_schedule_path, class: :item %>
             <%= link_to "Calendar", on_point_calendar_path, class: :item %>
             <%= link_to "Pricing", on_point_pricing_path, class: :item %>
           </div>

@@ -1,4 +1,8 @@
 module TemplateItemsHelper
+  def link_item_with_link tag
+    true
+  end
+
   def item_img_with_link tag, _class=nil
     # initializes editable string
     editable = ""
