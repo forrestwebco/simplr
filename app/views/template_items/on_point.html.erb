@@ -7,7 +7,7 @@
         <p><%= item_with_link "text_1" %></p>
 
         <h3 class="ui header"><%= item_with_link "text_2_title" %></h3>
-        <p><%= render "app/body", item: item_with_link("text_2", :without_link) %> <%= item_edit_link :text_2 %></p>
+        <p class="sm_txt_on_mobile"><%= render "app/body", item: item_with_link("text_2", :without_link) %> <%= item_edit_link :text_2 %></p>
 
       </div>
       <div class="six wide right floated column">
@@ -16,7 +16,7 @@
     </div>
     <div class="row">
       <div class="center aligned column">
-        <a class="ui huge button">Check Them Out</a>
+        <%= link_to "Check Them Out", on_point_schedule_path, class: "ui huge button" %>
       </div>
     </div>
   </div>
