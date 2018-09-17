@@ -1,6 +1,7 @@
 <div class="ui vertical stripe segment">
   <div class="ui text container">
     <%= item_img_with_link "lessons_schedule" %>
-    <%= item_with_link "lessons_schedule_txt" %>
+
+    <p><%= render "app/body", item: item_with_link("lessons_schedule_txt", :without_link, :dont_show_tmp) %> <%= item_edit_link :lessons_schedule_txt %></p>
   </div>
 </div>
