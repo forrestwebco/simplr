@@ -7,7 +7,7 @@
         <p><%= item_with_link "text_1" %></p>
 
         <h3 class="ui header"><%= item_with_link "text_2_title" %></h3>
-        <p><%= item_with_link "text_2" %></p>
+        <p><%= render "app/body", item: item_with_link("text_2", :without_link) %> <%= item_edit_link :text_2 %></p>
 
       </div>
       <div class="six wide right floated column">

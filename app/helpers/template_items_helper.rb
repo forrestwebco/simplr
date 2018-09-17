@@ -1,4 +1,11 @@
 module TemplateItemsHelper
+  # just the edit link
+  def item_edit_link tag
+    # finds item by tag if there is one
+    item = TemplateItem.find_by_tag tag
+    link_to "Edit", on_point_edit_path(item.unique_token) if current_user
+  end
+
   def item_img_with_link tag, _class=nil
     # initializes editable string
     editable = ""
@@ -16,7 +23,7 @@ module TemplateItemsHelper
     editable.html_safe
   end
 
-  def item_with_link tag
+  def item_with_link tag, without_link=nil
     editable = ""
 
     item = TemplateItem.find_by_tag tag
@@ -27,8 +34,8 @@ module TemplateItemsHelper
       item.save
     end
 
-    editable << item.body + " "
-    editable << link_to("Edit", on_point_edit_path(item.unique_token)) if current_user
+    editable << item.body + ' '
+    editable << link_to("Edit", on_point_edit_path(item.unique_token)) if current_user and not without_link
 
     editable.html_safe
   end
