@@ -77,8 +77,9 @@
       <%= link_to "Calendar", on_point_calendar_path, class: :item %>
       <%= link_to "Pricing", on_point_pricing_path, class: :item %>
       <%= render "template_items/loginout" %>
-      <% unless current_user %>
-        <a class="item">Register</a>
+      <% if current_user %>
+        <!-- To be reserved for potential admin creation feature -->
+        <%= link_to "Register", 'javascript:;', data: { confirm: "This link is only visible to admins (you) and is reserved here in case you'd like the ability to add other admins in the future." }, title: "This link is only visible to admins (you) and is reserved here in case you'd like the ability to add other admins in the future.", class: "item" %>
       <% end %>
     </div>
 
