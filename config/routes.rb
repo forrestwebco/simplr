@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'schedule', to: 'template_items#schedule', as: 'on_point_schedule'
   get 'show_item/:tag', to: 'template_items#show', as: 'show_item'
   get 'about', to: 'template_items#about', as: 'on_point_about'
+  get 'get_started', to: 'template_items#get_started', as: 'get_started'
 
   # on point CRUD paths
   get 'item_edit/:token', to: 'template_items#edit', as: 'on_point_edit'

@@ -66,7 +66,7 @@
           </div>
           <div class="item">
             <% unless current_user %>
-              <a class="ui primary button get_started_button">Get Started</a>
+              <%= link_to "Get Started", get_started_path, class: "ui primary button get_started_button" %>
             <% else %>
               <%= link_to 'Log out', sessions_destroy_path, method: :delete,
                 data: { confirm: "Are you sure you want to log out?" }, class: "ui primary button get_started_button" %>
@@ -111,7 +111,9 @@
           </h1>
           <h2><%= item_with_link "slogan" %></h2>
           </br>
-          <div class="ui huge primary button get_started_button">Get Started <i class="right arrow icon"></i></div>
+          <%= link_to get_started_path do %>
+            <div class="ui huge primary button get_started_button">Get Started <i class="right arrow icon"></i></div>
+          <% end %>
         </div>
       </div>
 
