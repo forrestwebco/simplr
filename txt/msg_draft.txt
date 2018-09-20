@@ -1,0 +1,94 @@
+
+
+
+
+
+
+
+Hey! Sorry for the late reply, things have been hectic here.
+
+
+
+:D !!!! I like the schedule is in the two separate places.  :D !!!!
+
+
+
+:D !!!! Appearance wise it looks great and there isn't anything I can think to change. :D !!!!
+
+
+
+On the bottom links will favorite moments, and how  to access connect to anything?
+  ### fix for this ###
+    Make these links at the bottom editable
+    perhaps all links at bottom editable
+
+
+
+Also when register shows up at the top with sign in will that be something that customers see?
+  ## fix for this ##
+    There could be a user registration or user account system for sure, may be unnecessary though
+    Could replace this button with something else or ensure customers don't see it,
+    this could be reserved for the ability to create other administrator/moderator accounts in the future
+
+
+## need to ask ##
+  "Get Started" button, what do you want it to do, or be removed, changed to say something else?
+
+
+
+  #### summary of what def needs to be done now ####
+
+    ---> Make any inactive links at the bottom editable <--- Doing. Just the links at the bottom so far. DONE!
+
+
+
+    Ensure "Register" only shows to admin <----- Done for side panel. Still need to fix horizontal one. DONE but need to make "Get Started" editable now
+
+
+
+    "Register" could be replaced with Facebook or other social media page link, or "Get Started" <------ DONE
+
+  ## possibly should do ##
+    Make "Get Started" button editable
+    Set up ability to create other admins, with specified permissions
+    Ensure cookie for dev wall expires annoyingly soon
+
+
+
+
+
+
+###### Done so far ######
+
+  Inactive links at bottom now editable
+
+  Register in side panel only shows to admin as future potential feature placeholder
+
+  Horizontal navigation bar at top now has "Sign in" and "Get Started" for customers/users who aren't signed in
+
+  It then shows "Your name" and "Log out" for signed in users/you
+
+  "Get Started" now points to it's own page that can be updated as well now
+
+
+
+
+
+
+
+HER #####
+Hey! Sorry for the late reply, things have been hectic hete. I like the schedule is in the two separate places. Appearance wise it looks great and there isn't anything I can think to change.
+
+On the bottom links will favorite moments, and how  to access connect to anything?
+
+Also when register shows up at the top with sign in will that be something that customers see?
+
+
+
+  ####### MY RESPONSE #########
+
+Hey, that's so great to hear you like the design and the schedule setup! For all of the currently inactive links in your footer section, I've just ensured that you can edit each one's text and URL to anything you prefer. So you should see edit links below each of those now when signed in.
+
+The "Register" button I've just changed as well for you so that now on mobile when you're signed in and open your side navigational menu, it'll give you a brief explanation when you click "Register": "This link is only visible to admins and is reserved here in case you'd like the ability to add other admins in the future, or if you'd ever like to have user accounts/profiles for each customer."
+
+As for desktop, when you scroll down past the cover photo, you'll now see your username and a "Log out" button in the top, horizontal nav menu when you're signed in, and when signed out (customer view), it'll now show "Sign in" and "Get Started". So I've ensured that there's also a "Get Started" page now as well since that button was also being used within the cover photo. We can totally change "Get Started" to something else though if you'd like.
