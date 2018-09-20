@@ -113,25 +113,25 @@
         <div class="ui container">
           <div class="ui stackable inverted divided equal height stackable grid">
             <div class="three wide column">
-              <h4 class="ui inverted header">About</h4>
+              <h4 class="ui inverted header"><%= item_with_link "footer_section_1_title" %></h4>
               <div class="ui inverted link list">
-                <a href="#" class="item">Sitemap</a>
-                <a href="#" class="item">Contact Us</a>
-                <a href="#" class="item">Dance Lessons</a>
-                <a href="#" class="item">Future Plans</a>
+                <%= item_url_with_link "footer_section_1_link_1", class: "item" %>
+                <%= item_url_with_link "footer_section_1_link_2", class: "item" %>
+                <%= item_url_with_link "footer_section_1_link_3", class: "item" %>
+                <%= item_url_with_link "footer_section_1_link_4", class: "item" %>
               </div>
             </div>
             <div class="three wide column">
-              <h4 class="ui inverted header">Services</h4>
+              <h4 class="ui inverted header"><%= item_with_link "footer_section_2_title" %></h4>
               <div class="ui inverted link list">
                 <%= link_to "New Student Packet", new_student_packet_path, class: :item, target: "_blank" %>
-                <a href="#" class="item">Favorite Moments</a>
-                <a href="#" class="item">How To Access</a>
+                <%= item_url_with_link "footer_section_2_link_2", class: "item" %>
+                <%= item_url_with_link "footer_section_2_link_3", class: "item" %>
                 <%= render "template_items/loginout" %>
               </div>
             </div>
             <div class="seven wide column">
-              <h4 class="ui inverted header">Social Media</h4>
+              <h4 class="ui inverted header"><%= item_with_link "footer_section_3_title" %></h4>
               <div class="ui inverted link list">
                 <a href="https://www.facebook.com/keepitonpointe" class="item"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i> Facebook</a>
                 <a href="#" class="item"><i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i> Twitter</a>

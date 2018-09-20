@@ -3,6 +3,8 @@
     <%= form_for(@item, html: { class: "ui form", id: :edit_form }) do |f| %>
       <%= hidden_field_tag :on_point, true %>
 
+      <h4 class="template_item_tag_label">Template item tag: <%= @item.tag %></h4>
+
       <div class="field">
         <label>Text</label>
         <%= f.text_area :body, placeholder: "Text" %>

@@ -41,7 +41,7 @@ module TemplateItemsHelper
     editable.html_safe
   end
 
-  def item_url_with_link tag
+  def item_url_with_link tag, _class=nil
     editable = ""
 
     item = TemplateItem.find_by_tag tag
@@ -52,7 +52,7 @@ module TemplateItemsHelper
       item.save
     end
 
-    editable << link_to(item.body, item.url) + " "
+    editable << link_to(item.body, item.url, class: (_class ? _class[:class] : ''), title: item.tag) + " "
     editable << link_to(" Edit", on_point_edit_path(item.unique_token)) if current_user
 
     editable.html_safe
