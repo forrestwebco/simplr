@@ -56,16 +56,23 @@
         <%= link_to "Schedule", on_point_schedule_path, class: :item %>
         <%= link_to "Calendar", on_point_calendar_path, class: :item %>
         <%= link_to "Pricing", on_point_pricing_path, class: :item %>
-        <% unless current_user %>
-          <div class="right menu">
-            <div class="item">
+        <div class="right menu">
+          <div class="item">
+            <% unless current_user %>
               <%= link_to "Sign in", on_point_login_path, class: "ui button" %>
-            </div>
-            <div class="item">
-              <a class="ui primary button get_started_button">Register</a>
-            </div>
+            <% else %>
+              <%= link_to current_user.name.capitalize, on_point_login_path, class: "ui button" %>
+            <% end %>
           </div>
-        <% end %>
+          <div class="item">
+            <% unless current_user %>
+              <a class="ui primary button get_started_button">Get Started</a>
+            <% else %>
+              <%= link_to 'Log out', sessions_destroy_path, method: :delete,
+                data: { confirm: "Are you sure you want to log out?" }, class: "ui primary button get_started_button" %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -78,8 +85,8 @@
       <%= link_to "Pricing", on_point_pricing_path, class: :item %>
       <%= render "template_items/loginout" %>
       <% if current_user %>
-        <!-- To be reserved for potential admin creation feature -->
-        <%= link_to "Register", 'javascript:;', data: { confirm: "This link is only visible to admins (you) and is reserved here in case you'd like the ability to add other admins in the future." }, title: "This link is only visible to admins (you) and is reserved here in case you'd like the ability to add other admins in the future.", class: "item" %>
+      <!-- To be reserved for potential admin creation feature -->
+      <%= link_to "Register", 'javascript:;', data: { confirm: "This link is only visible to admins (you) and is reserved here in case you'd like the ability to add other admins in the future, or if you'd like to user accounts/profiles for each customer." }, title: "This link is only visible to admins (you) and is reserved here in case you'd like the ability to add other admins in the future, or if you'd like to user accounts/profiles for each customer.", class: "item" %>
       <% end %>
     </div>
 
