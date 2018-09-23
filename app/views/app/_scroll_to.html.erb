@@ -1,0 +1,16 @@
+<!--- Suffix created and appended to end of function name to ensure no scope issues --->
+<% suffix = clean_suffix %>
+
+<script>
+  $(document).ready(function() {
+    setTimeout(scroll_to_item_<%= suffix %>, 500);
+  });
+
+  function scroll_to_item_<%= suffix %>() {
+    var item = $("#<%= id.to_s %>");
+
+    $('html, body').animate({
+      scrollTop: ($(item).offset().top - 55)
+    }, 500);
+  }
+</script>

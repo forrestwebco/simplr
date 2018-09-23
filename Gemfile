@@ -23,6 +23,9 @@ gem 'semantic-ui-sass'
 gem 'purecss-sass'
 gem "uikit-sass-rails"
 
+# seed data, lorim ipsum and star wars options, and a bunch more https://github.com/stympy/faker
+gem 'faker' # coolest gem in the file
+
 # SEO
 gem 'meta-tags'
 
@@ -191,9 +194,6 @@ group :development do
   gem 'rubocop'
   # necessary debugging tools
   gem 'rspec'
-
-  # seed data, lorim ipsum and star wars options, and a bunch more https://github.com/stympy/faker
-  gem 'faker'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

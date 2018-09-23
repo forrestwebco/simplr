@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     :seen?, :seent, :get_site_title, :record_last_visit, :probably_human, :god?, :goddess?, :currently_kristin?,
     :forrest_only_club?, :invited_to_forrest_only_club?, :in_dev?, :is_gatekeeper?, :page_turning, :testing_score?,
     :unique_element_token, :returning_user?, :stale_content?, :user_mentioned?, :low_energy?,
-    :returning_user_with_stale_content?, :featured_content
+    :returning_user_with_stale_content?, :featured_content, :michaela?, :clean_suffix
 
   include SimpleCaptcha::ControllerHelpers
 
@@ -270,6 +270,10 @@ class ApplicationController < ActionController::Base
     return codes
   end
 
+  def clean_suffix
+    SecureRandom.urlsafe_base64.gsub(/[^0-9A-Za-z]/, '').gsub(/\d+/, '')
+  end
+
   # returns anon_token or current_user
   def current_identity
     if current_user
@@ -337,6 +341,12 @@ class ApplicationController < ActionController::Base
 
   def is_gatekeeper?
     current_user and current_user.gatekeeper and User.where(gatekeeper: true).last.eql? current_user
+  end
+
+  def michaela?
+    if current_user and current_user.name.eql? 'Michaela'
+      return true
+    end
   end
 
   def dev?

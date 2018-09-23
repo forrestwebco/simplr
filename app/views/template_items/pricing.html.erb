@@ -1,49 +1,78 @@
-<!-- https://www.sharefile.com/pricing?aid=208144752149&src=google&kw=sharefile%20pricing&gclid=CjwKCAjwy_XaBRAWEiwApfjKHh6S343NI5zLTy7NpDuiH9jgeMi9ukDnMenV8iRsdFr5Vds_MZPngRoC2a8QAvD_BwE-->
 <div class="ui vertical stripe segment">
-  <div class="row">     
-    <h3 class="ui center aligned header">Class Pricing</h3>
-
-    <div class="ui container">
-      <table class="ui celled table">
-        <thead>
-          <th>Class</th>
-          <th>Prices</th>
-        </thead>
-        <tbody>
-          <% for item in @priced_items %>
-            <tr>
-              <td>
-                <h4 class="ui image header">
-                  <%= image_tag item.image, class: "ui mini rounded image" %>
-                  <div class="content">
-                    <%= item.title %>
-                    <div class="sub header"><%= item.body %>
-                  </div>
-                </h4>
-              </td>
-              <td>
-                <%= item.price %>
-              </td>
-            </tr>
-          <% end %>
-          
-          <% if current_user %>
-            <tr>
-              <td>
-                <h4 class="ui image header">
-                  <div class="content">
-                    <div class="sub header"><%= link_to "New class",
-                      gen_item_path(tag: "priced_item_#{TemplateItem.priced_items.size + 1}",
-                      item_type: :priced_item), method: :post %>
-                  </div>
-                </h4>
-              </td>
-              <td>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+  <div class="ui text container">
+    <h3 class="ui header" id="pricing_page_title"><%= item_with_link "pricing_page_title" %></h3>
+    <p><%= item_with_link "pricing_page_txt" %></p>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    setTimeout(scroll_to_form, 500);
+  });
+
+  function scroll_to_form() {
+    var pricing_page_title = $("#pricing_page_title");
+
+    $('html, body').animate({
+      scrollTop: ($(pricing_page_title).offset().top - 55)
+    }, 500);
+  }
+</script>
+
+<% if michaela? %>
+  <!-- https://www.sharefile.com/pricing?aid=208144752149&src=google&kw=sharefile%20pricing&gclid=CjwKCAjwy_XaBRAWEiwApfjKHh6S343NI5zLTy7NpDuiH9jgeMi9ukDnMenV8iRsdFr5Vds_MZPngRoC2a8QAvD_BwE-->
+  <div class="ui vertical stripe segment">
+    <div class="row">
+      <h3 class="ui center aligned header">Class Pricing</h3>
+
+      <div class="ui container">
+        <table class="ui celled table">
+          <thead>
+            <th>Class</th>
+            <th>Prices</th>
+          </thead>
+          <tbody>
+            <% for item in @priced_items %>
+              <tr>
+                <td>
+                  <h4 class="ui image header">
+                    <%= image_tag item.image, class: "ui mini rounded image" %>
+                    <div class="content">
+                      <%= item.title %>
+                      <div class="sub header"><%= item.body %>
+                    </div>
+                  </h4>
+                </td>
+                <td>
+                  <%= item.price %>
+                </td>
+              </tr>
+            <% end %>
+
+            <% if current_user %>
+              <tr>
+                <td>
+                  <h4 class="ui image header">
+                    <div class="content">
+                      <div class="sub header"><%= link_to "New class",
+                        gen_item_path(tag: "priced_item_#{TemplateItem.priced_items.size + 1}",
+                        item_type: :priced_item), method: :post %>
+                    </div>
+                  </h4>
+                </td>
+                <td>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% elsif in_dev? %>
+  <div class="ui vertical stripe segment">
+    <div class="ui text container">
+      <h3 class="ui header">Hello there, <%= current_user.name %>!</h3>
+    </div>
+  </div>
+<% end %>

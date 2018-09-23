@@ -1,0 +1,24 @@
+<div class="ui vertical stripe segment">
+  <div class="ui text container">
+    <h3 class="ui header" id="admin_title"><%= item_with_link "admin_page_title" %></h3>
+    <p><%= item_with_link "admin_page_text" %></p>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    setTimeout(scroll_to_form, 500);
+  });
+
+  function scroll_to_form() {
+    var admin_title = $("#admin_title");
+
+    $('html, body').animate({
+      scrollTop: ($(admin_title).offset().top - 55)
+    }, 500);
+  }
+</script>
+
+
+<!-- work in progress... vvv -->
+<%= render "app/scroll_to", id: :about_title if false %>
