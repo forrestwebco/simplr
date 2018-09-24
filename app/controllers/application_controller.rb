@@ -344,9 +344,7 @@ class ApplicationController < ActionController::Base
   end
 
   def michaela?
-    if current_user and current_user.name.downcase.eql? 'michaela'
-      return true
-    end
+    current_user and current_user.name.downcase.eql? 'michaela'
   end
 
   def dev?
