@@ -4,7 +4,7 @@ class TemplateItemsController < ApplicationController
     :new_student_packet, :schedule, :show, :about, :get_started]
 
   before_action :set_item, only: [:show, :edit, :update]
-  before_action :check_auth, only: [:edit, :update, :gen_item]
+  before_action :check_auth, only: [:edit, :update, :gen_item, :admin]
 
   layout :resolve_layout
 
@@ -53,7 +53,7 @@ class TemplateItemsController < ApplicationController
   private
 
   def check_auth
-    redirect_to '/404' unless current_user
+    redirect_to '/404' unless michaela?
   end
 
   def set_item
