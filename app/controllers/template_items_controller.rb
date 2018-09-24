@@ -30,7 +30,7 @@ class TemplateItemsController < ApplicationController
   end
 
   def pass_wall
-    cookies.permanent[:still_in_dev_wall_passed] = true
+    cookies[:dev_wall_passed] = true
     redirect_to root_url
   end
 

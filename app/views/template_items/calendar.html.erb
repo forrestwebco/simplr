@@ -1,5 +1,4 @@
-<div class="ui vertical stripe segment">
-
+<div class="ui vertical stripe segment" id="google_calendar">
   <div class="ui one column stackable center aligned page computer only grid">
     <div class="column twelve wide">
         <iframe src="<%= item_with_link('calendar_url', :without_link) %>" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
@@ -18,8 +17,6 @@
     </div>
   </div>
 
-
-
   <% if michaela? %>
     <div class="ui middle aligned stackable grid container">
       <div class="row">
@@ -29,23 +26,16 @@
             <div class="header">
               Message (only seen by admins)
             </div>
-
             <ul class="list">
               <li>Above is an embedded Google Calendar which you can replace with your own by clicking the "Edit" link below.</li>
               <li><b><%= item_edit_link 'calendar_url' %></b> calendar URL</li>
             </ul>
-
-
           </div>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-
-
-
-
 
 <!-- in development, may not use, a full events system (on site) -->
 <% if in_dev? and false %>
