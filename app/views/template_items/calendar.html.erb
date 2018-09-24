@@ -1,25 +1,69 @@
-  <div class="ui vertical stripe segment">
-    <div class="ui middle aligned stackable grid container">
-      <% unless current_user %>
-        <div class="row">
-          <iframe src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-        </div>
-      <% end %>
+<div class="ui vertical stripe segment">
 
-      <% if current_user %>
-        <div class="row">
-          <div class="card">
-            <%= render "events/form" %>
-          </div>
-        </div>
-        <h4 class="ui horizontal header divider">
-          <a href="#">Events Scheduled</a>
-        </h4>
-      <% end %>
-      <div class="row">
-        <% for event in @events %>
-          <%= render "events/card", event: event %>
-        <% end %>
-      </div>
+  <div class="ui one column stackable center aligned page computer only grid">
+    <div class="column twelve wide">
+        <iframe src="<%= item_with_link('calendar_url', :without_link) %>" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
   </div>
+
+  <div class="ui middle aligned stackable tablet only grid container">
+    <div class="row">
+      <iframe src="<%= item_with_link('calendar_url', :without_link) %>" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
+
+  <div class="ui middle aligned stackable mobile only grid container">
+    <div class="row">
+      <iframe src="<%= item_with_link('calendar_url', :without_link) %>" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
+
+
+
+  <% if michaela? %>
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="ui icon message centered">
+          <i class="inbox icon"></i>
+          <div class="content">
+            <div class="header">
+              Message (only seen by admins)
+            </div>
+
+            <ul class="list">
+              <li>Above is an embedded Google Calendar which you can replace with your own by clicking the "Edit" link below.</li>
+              <li><b><%= item_edit_link 'calendar_url' %></b> calendar URL</li>
+            </ul>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+<!-- in development, may not use, a full events system (on site) -->
+<% if in_dev? and false %>
+  <% if current_user %>
+    <div class="row">
+      <div class="card">
+        <%= render "events/form" %>
+      </div>
+    </div>
+    <h4 class="ui horizontal header divider">
+      <a href="#">Events Scheduled</a>
+    </h4>
+  <% end %>
+    <div class="row">
+      <% for event in @events %>
+        <%= render "events/card", event: event %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+<% end %>

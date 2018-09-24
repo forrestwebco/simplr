@@ -6,19 +6,21 @@
       <h4 class="template_item_tag_label">Template item tag: <%= @item.tag %></h4>
 
       <div class="field">
-        <label>Text</label>
+        <label><%= @item.tag.eql?('calendar_url') ? 'Google Calendar URL' : 'Text' %></label>
         <%= f.text_area :body, placeholder: "Text" %>
       </div>
 
-      <div class="field">
-        <label>URL</label>
-        <%= f.text_field :url, placeholder: "URL" %>
-      </div>
+      <% unless @item.tag.eql? 'calendar_url' %>
+        <div class="field">
+          <label>URL</label>
+          <%= f.text_field :url, placeholder: "URL" %>
+        </div>
 
-      <div class="field">
-        <label>Image</label>
-        <%= f.file_field :image %>
-      </div>
+        <div class="field">
+          <label>Image</label>
+          <%= f.file_field :image %>
+        </div>
+      <% end %>
 
       <button class="ui button" type="submit">Save</button>
     <% end %>
