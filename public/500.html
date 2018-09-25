@@ -4,16 +4,32 @@
   <title>Keep It On Pointe Dance Company - Error</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-	  body {
-		  background: black;
-	  }
+    html {
+      font-family: Helvetica;
+    }
+
+    body {
+      background: black;
+    }
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        color: rgb(175, 175, 175);
+        -webkit-tap-highlight-color: transparent;
+    }
   </style>
 </head>
 
 <body>
 	<!-- This file lives in public/404.html -->
 	<div align="center">
-		<img src="whoops.gif" alt="404" style="width:95%; max-width: 500px; padding-top: 75px;" id="error_gif">
+    <a href="https://keepitonpointe.com">
+  		<img src="whoops.gif" alt="404" style="width:95%; max-width: 500px; padding-top: 75px;" id="error_gif">
+      <p>
+        Something went wrong. Click here to return home.
+      </p>
+    </a>
 
     <script>
       var gif_bool = ~~(Math.random() * 2) + 1;

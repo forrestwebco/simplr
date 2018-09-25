@@ -4,16 +4,32 @@
   <title>404</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+    html {
+      font-family: Helvetica;
+    }
+
 	  body {
 		  background: black;
 	  }
+    a {
+      	text-decoration: none;
+      	font-weight: bold;
+      	font-size: 14px;
+      	color: rgb(175, 175, 175);
+        -webkit-tap-highlight-color: transparent;
+    }
   </style>
 </head>
 
 <body>
 	<!-- This file lives in public/404.html -->
 	<div align="center">
-		<img src="404.gif" alt="404" style="width:95%; max-width: 500px;">
+    <a href="https://keepitonpointe.com">
+      <img src="404.gif" alt="404" style="width:95%; max-width: 500px;">
+      <p>
+        Something went wrong... Click here to go back.
+      </p>
+    </a>
 	</div>
 </body>
 </html>
