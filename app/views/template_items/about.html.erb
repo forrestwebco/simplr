@@ -1,9 +1,18 @@
+
 <div class="ui vertical stripe segment">
-  <div class="ui text container">
+  <div class="ui text container vertical_spacing">
     <h3 class="ui header" id="about_title"><%= item_with_link "about_title" %></h3>
     <p><%= item_with_link "about_text" %></p>
   </div>
+
+  <div class="ui grid">
+    <div class="column">
+      <%= render "template_items/teachers" %>
+    </div>
+  </div>
 </div>
+
+
 
 <script>
   $(document).ready(function() {
