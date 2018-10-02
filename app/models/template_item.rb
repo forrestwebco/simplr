@@ -2,12 +2,25 @@ class TemplateItem < ApplicationRecord
   validates_presence_of :tag
 
   before_create :gen_unique_token
+  before_create :better_ipsum
 
   mount_uploader :image, ImageUploader
-  
+
   scope :priced_items, -> { where item_type: "priced" }
 
   private
+
+  def better_ipsum
+    self.body = if Rails.env.development? and not self.body.present?
+      Faker::StarWars.quote
+    elsif not self.body.present?
+      "This template item has not been set."
+    end
+
+    unless self.body.present? or self.body.include? "This template item has not been set."
+      Rails.env.development?
+    end
+  end
 
   def gen_unique_token
     begin
