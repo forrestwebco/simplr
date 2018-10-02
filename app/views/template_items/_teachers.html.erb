@@ -1,27 +1,97 @@
 <div class="ui cards stackable centered">
-  <% 4.times do |i| %>
-    <div class="card">
-      <div class="image">
-        <%= item_img_with_link "about_teacher_#{i}", _class: "", without_link: true %>
+  <div class="card">
+    <div class="image">
+      <%= item_img_with_link "about_teacher_1", "", :without_link %>
+    </div>
+    <div class="content">
+      <div class="header"><%= item_with_link "about_teacher_1", nil, nil, :name %></div>
+      <div class="meta">
+        <a><%= item_with_link "about_teacher_1", :without_link, nil, :title %></a>
       </div>
-      <div class="content">
-        <div class="header"><%= item_with_link "about_teacher_{i}", without_link: true %></div>
-        <div class="meta">
-          <a>Coworker</a>
-        </div>
-        <div class="description">
-          Elyse is a copywriter working in New York.
-        </div>
-      </div>
-      <div class="extra content">
-        <span class="right floated">
-          Joined in 2014
-        </span>
-        <span>
-          <i class="user icon"></i>
-          151 Friends
-        </span>
+      <div class="description">
+        <%= item_with_link "about_teacher_1", :without_link, nil, :body %>
       </div>
     </div>
-  <% end %>
+    <div class="extra content">
+      <span class="right floated">
+        Joined in <%= item_with_link "about_teacher_1", :without_link, nil, :start_date %>
+      </span>
+      <span>
+        <i class="user icon"></i>
+        <%= item_with_link "about_teacher_1", :without_link, nil, :total_classes %> Students
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="image">
+      <%= item_img_with_link "about_teacher_2", "", :without_link %>
+    </div>
+    <div class="content">
+      <div class="header"><%= item_with_link "about_teacher_2", nil, nil, :name %></div>
+      <div class="meta">
+        <a><%= item_with_link "about_teacher_2", :without_link, nil, :title %></a>
+      </div>
+      <div class="description">
+        <%= item_with_link "about_teacher_2", :without_link, nil, :body %>
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        Joined in <%= item_with_link "about_teacher_2", :without_link, nil, :start_date %>
+      </span>
+      <span>
+        <i class="user icon"></i>
+        <%= item_with_link "about_teacher_2", :without_link, nil, :total_classes %> Students
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="image">
+      <%= item_img_with_link "about_teacher_3", "", :without_link %>
+    </div>
+    <div class="content">
+      <div class="header"><%= item_with_link "about_teacher_3", nil, nil, :name %></div>
+      <div class="meta">
+        <a><%= item_with_link "about_teacher_3", :without_link, nil, :title %></a>
+      </div>
+      <div class="description">
+        <%= item_with_link "about_teacher_3", :without_link, nil, :body %>
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        Joined in <%= item_with_link "about_teacher_3", :without_link, nil, :start_date %>
+      </span>
+      <span>
+        <i class="user icon"></i>
+        <%= item_with_link "about_teacher_3", :without_link, nil, :total_classes %> Students
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="image">
+      <%= item_img_with_link "about_teacher_4", "", :without_link %>
+    </div>
+    <div class="content">
+      <div class="header"><%= item_with_link "about_teacher_4", nil, nil, :name %></div>
+      <div class="meta">
+        <a><%= item_with_link "about_teacher_4", :without_link, nil, :title %></a>
+      </div>
+      <div class="description">
+        <%= item_with_link "about_teacher_4", :without_link, nil, :body %>
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        Joined in <%= item_with_link "about_teacher_4", :without_link, nil, :start_date %>
+      </span>
+      <span>
+        <i class="user icon"></i>
+        <%= item_with_link "about_teacher_4", :without_link, nil, :total_classes %> Students
+      </span>
+    </div>
+  </div>
 </div>

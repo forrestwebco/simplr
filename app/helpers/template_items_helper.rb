@@ -1,4 +1,13 @@
 module TemplateItemsHelper
+  def item_form_except_for items
+    for item in items
+      if @item.tag.include? item.to_s
+        return false
+      end
+    end
+    true
+  end
+
   # just the edit link
   def item_edit_link tag
     # finds item by tag if there is one
@@ -16,7 +25,7 @@ module TemplateItemsHelper
     # sets displayed img to item image or placeholder dance img if none
     img = (item and item.image_url) ? item.image_url : "on_point/dance.png"
     # adds image tag to be rendered
-    editable << image_tag(img, class: (_class ? _class[:class] : "ui centered large rounded image"))
+    editable << image_tag(img, class: (_class ? _class : "ui centered large rounded image"))
     # add edit link to image tag if signed in and item found/created
     editable << link_to("Edit Image", on_point_edit_path(item.unique_token)) if current_user and item and not without_link
     # sanitizes string to safely render to html
@@ -35,7 +44,7 @@ module TemplateItemsHelper
     end
 
     # ensures any placeholder text is hidden if dont_show_tmp is set
-    item_attr = item.send(_attr ? _attr.to_sym : :body ).to_s
+    item_attr = item.send(_attr ? _attr.to_sym : :body ).send(_attr.eql?(:start_date) ? :year : :to_s).to_s
     editable << item_attr + ' ' unless dont_show_tmp and item_attr.include?("This template item has not been set.")
     editable << link_to("Edit", on_point_edit_path(item.unique_token)) if current_user and not without_link
 

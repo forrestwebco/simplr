@@ -71,17 +71,6 @@ class TemplateItemsController < ApplicationController
     redirect_to '/404' unless @item
   end
 
-  def client_options
-    {
-      client_id: ENV['GOOGLE_CALENDAR_CLIENT_ID'],
-      client_secret: ENV['GOOGLE_CALENDAR_SECRET'],
-      authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
-      token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
-      scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
-      redirect_uri: callback_url
-    }
-  end
-
   def resolve_layout
     case action_name.to_sym
     when :on_point, :calendar, :events, :pricing, :admin, :example_stuff, :login, :edit, :schedule, :show, :about, :get_started
@@ -103,7 +92,7 @@ class TemplateItemsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def item_params
-    params.require(:template_item).permit(:body, :image, :url)
+    params.require(:template_item).permit(:body, :image, :url, :name, :title, :description, :start_date, :total_classes)
   end
 end
 

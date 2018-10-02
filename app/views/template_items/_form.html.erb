@@ -10,15 +10,29 @@
         <%= f.text_area :body, placeholder: "Text" %>
       </div>
 
-      <% unless @item.tag.eql? 'calendar_url' %>
+      <% if item_form_except_for [:calendar_url] %>
         <div class="field">
           <label>URL</label>
           <%= f.text_field :url, placeholder: "URL" %>
         </div>
+      <% end %>
+
+      <% if item_form_except_for [:calendar_url] %>
+        <div class="field">
+          <label>Image <%= image_tag @item.image, style: "width: 25px;" if @item.image_url %></label>
+          <%= f.file_field :image %>
+        </div>
+      <% end %>
+
+      <% if @item.tag.include? 'about_teacher_' %>
+        <div class="field">
+          <label>Instructor name</label>
+          <%= f.text_field :name, placeholder: "Instructor name" %>
+        </div>
 
         <div class="field">
-          <label>Image</label>
-          <%= f.file_field :image %>
+          <label>Professional title</label>
+          <%= f.text_field :title, placeholder: "Professional title" %>
         </div>
       <% end %>
 
