@@ -155,17 +155,21 @@
     </div>
 
     <% unless cookies[:dev_wall_passed].present? %>
-      <%= link_to pass_wall_path, class: :still_in_dev_wall do %>
-        <div class="dark_card top_spacer inner_card_padding" align="center">
-          <p class="still_in_dev_wall_txt">
+      <%= link_to pass_wall_path, class: :still_in_dev_wall, id: :still_in_dev_wall do %>
+        <div class="dark_card top_spacer inner_card_padding" id="still_in_dev_wall_card" align="center">
+          <p class="still_in_dev_wall_txt" id="still_in_dev_wall_txt">
             This website is still in development.
           </p>
 
-          <p class="still_in_dev_wall_txt">
+          <p class="still_in_dev_wall_txt" id="still_in_dev_wall_txt_1">
             Please click to continue...
           </p>
         </div>
       <% end %>
+      <script>
+        <%= render "app/fader.js", target: 'still_in_dev_wall_txt', target_id: '' %>
+        <%= render "app/fader.js", target: 'still_in_dev_wall_txt_1', target_id: '' %>
+      </script>
     <% end %>
   </body>
 </html>
