@@ -12,7 +12,7 @@ module TemplateItemsHelper
     # finds item by tag if there is one
     item = TemplateItem.find_by_tag tag
     # creates new item with tag if there isn't one
-    item = TemplateItem.create body: "This template item has not been set.", tag: tag unless item
+    item = TemplateItem.create tag: tag unless item
     # sets displayed img to item image or placeholder dance img if none
     img = (item and item.image_url) ? item.image_url : "on_point/dance.png"
     # adds image tag to be rendered
@@ -23,19 +23,20 @@ module TemplateItemsHelper
     editable.html_safe
   end
 
-  def item_with_link tag, without_link=nil, dont_show_tmp=nil, attr=nil
+  def item_with_link tag, without_link=nil, dont_show_tmp=nil, _attr=nil
     editable = ""
 
     item = TemplateItem.find_by_tag tag
 
     # creates new placeholder item if ones not been set
     unless item
-      item = TemplateItem.new body: "This template item has not been set.", tag: tag
+      item = TemplateItem.new tag: tag
       item.save
     end
 
     # ensures any placeholder text is hidden if dont_show_tmp is set
-    editable << item.body + ' ' unless dont_show_tmp and item.body.include?("This template item has not been set.")
+    item_attr = item.send(_attr ? _attr.to_sym : :body ).to_s
+    editable << item_attr + ' ' unless dont_show_tmp and item_attr.include?("This template item has not been set.")
     editable << link_to("Edit", on_point_edit_path(item.unique_token)) if current_user and not without_link
 
     editable.html_safe
@@ -48,7 +49,7 @@ module TemplateItemsHelper
 
     # creates new placeholder item if ones not been set
     unless item
-      item = TemplateItem.new body: "This template item has not been set.", tag: tag
+      item = TemplateItem.new tag: tag
       item.save
     end
 

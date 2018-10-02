@@ -11,15 +11,18 @@ class TemplateItem < ApplicationRecord
   private
 
   def better_ipsum
-    self.body = if Rails.env.development? and not self.body.present?
-      Faker::StarWars.quote
+    if Rails.env.development? and not self.body.present?
+      self.title = Faker::StarWars.call_sign
+      self.name = Faker::StarWars.character
+      self.body = Faker::StarWars.quote self.name
+      self.description = Faker::StarWars.wookiee_sentence
     elsif not self.body.present?
-      "This template item has not been set."
+      for _attr in [:title, :name, :body, :description]
+        self.send(_attr) = "This template item has not been set."
+      end
     end
-
-    unless self.body.present? or self.body.include? "This template item has not been set."
-      Rails.env.development?
-    end
+    self.start_date = DateTime.current
+    self.total_classes = rand 1..3
   end
 
   def gen_unique_token
