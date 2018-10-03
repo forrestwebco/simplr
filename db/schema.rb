@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181001234051) do
+ActiveRecord::Schema.define(version: 20181003045540) do
 
   create_table "arts", force: :cascade do |t|
     t.integer  "user_id"
@@ -415,15 +415,15 @@ ActiveRecord::Schema.define(version: 20181001234051) do
     t.string   "video"
     t.string   "tag"
     t.string   "unique_token"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.float    "price"
     t.string   "item_type"
     t.string   "url"
     t.string   "name"
     t.text     "description"
     t.datetime "start_date"
-    t.integer  "total_classes"
+    t.integer  "total_students"
   end
 
   create_table "tests", force: :cascade do |t|
