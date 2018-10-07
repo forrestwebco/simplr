@@ -4,6 +4,10 @@ class Note < ActiveRecord::Base
 
   scope :unseen, -> { where seen: [nil, false] }
 
+  def self.update_banner
+    true if self
+  end
+
   def self.notify action, item=nil, receiver=nil, sender=nil
     self.create(
       action: action,

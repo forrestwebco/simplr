@@ -36,6 +36,9 @@ class TemplateItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
+      if @item.tag.include? "lessons_schedule"
+        true
+      end
       redirect_to root_url
     else
       redirect_to on_point_edit_path(@item.unique_token), notice: "Failed to update item..."
