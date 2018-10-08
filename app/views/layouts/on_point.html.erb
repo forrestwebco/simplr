@@ -51,11 +51,11 @@
     <!-- Following Menu -->
     <div class="ui large top fixed hidden menu">
       <div class="ui container">
-        <%= link_to "Home", root_url, class: "active item" %>
-        <%= link_to "About", on_point_about_path, class: :item %>
-        <%= link_to "Schedule", on_point_schedule_path, class: :item %>
-        <%= link_to "Calendar", on_point_calendar_path, class: :item %>
-        <%= link_to "Pricing", on_point_pricing_path, class: :item %>
+        <%= link_to "Home", root_url, class: "#{@home ? 'active' : ''} item" %>
+        <%= link_to "About", on_point_about_path, class: "#{@about ? 'active' : ''} item" %>
+        <%= link_to "Schedule", on_point_schedule_path, class: "#{@schedule ? 'active' : ''} item" %>
+        <%= link_to "Calendar", on_point_calendar_path, class: "#{@calendar ? 'active' : ''} item" %>
+        <%= link_to "Pricing", on_point_pricing_path, class: "#{@pricing ? 'active' : ''} item" %>
         <div class="right menu">
           <div class="item">
             <% unless current_user %>
@@ -98,11 +98,11 @@
             <a class="toc item">
               <i class="sidebar icon"></i>
             </a>
-            <%= link_to "Home", root_url, class: "active item" %>
-            <%= link_to "About", on_point_about_path, class: :item %>
-            <%= link_to "Schedule", on_point_schedule_path, class: :item %>
-            <%= link_to "Calendar", on_point_calendar_path, class: :item %>
-            <%= link_to "Pricing", on_point_pricing_path, class: :item %>
+            <%= link_to "Home", root_url, class: "#{@home ? 'active' : ''} item" %>
+            <%= link_to "About", on_point_about_path, class: "#{@about ? 'active' : ''} item" %>
+            <%= link_to "Schedule", on_point_schedule_path, class: "#{@schedule ? 'active' : ''} item" %>
+            <%= link_to "Calendar", on_point_calendar_path, class: "#{@calendar ? 'active' : ''} item" %>
+            <%= link_to "Pricing", on_point_pricing_path, class: "#{@pricing ? 'active' : ''} item" %>
           </div>
         </div>
         <div class="ui text container">
