@@ -30,13 +30,13 @@ Rails.application.routes.draw do
   #put 'item_update/:token', to: 'template_items#update', as: 'on_point_update'
 
   # google calendar api auth routing for On Point
-  # get 'calendar', to: 'template_items#calendar', as: 'on_point_calendar'
-  # get 'redirect', to: 'template_items#redirect', as: 'redirect'
-  # get 'callback', to: 'template_items#callback', as: 'callback'
-  # # has regex for calendar_id containing a .com at the end
-  # get 'calendar_events/:calendar_id', to: 'template_items#events', as: 'calendar_events', calendar_id: /[^\/]+/
-  # # has regex for calendar_id containing a .com at the end
-  # post 'new_calendar_event/:calendar_id', to: 'template_items#new_event', as: 'new_calendar_event', calendar_id: /[^\/]+/
+  get 'calendar', to: 'template_items#calendar', as: 'on_point_calendar'
+  get 'redirect', to: 'template_items#redirect', as: 'redirect'
+  get 'callback', to: 'template_items#callback', as: 'callback'
+  # has regex for calendar_id containing a .com at the end
+  get 'calendar_events/:calendar_id', to: 'template_items#events', as: 'calendar_events', calendar_id: /[^\/]+/
+  # has regex for calendar_id containing a .com at the end
+  post 'new_calendar_event/:calendar_id', to: 'template_items#new_event', as: 'new_calendar_event', calendar_id: /[^\/]+/
 
   # creating priced items
   post 'gen_item/:tag', to: 'template_items#gen_item', as: 'gen_item'
