@@ -49,7 +49,7 @@ class SessionsController < ApplicationController
   def destroy
     if current_user
       # destroys all sessions
-      current_user.update_token
+      # current_user.update_token # turned off for now
       cookies.delete(:auth_token)
     end
     redirect_to root_url

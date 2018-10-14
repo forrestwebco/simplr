@@ -1,55 +1,68 @@
-<div class="ui vertical stripe segment">
-  <div class="ui text container">
-    <h3 class="ui header" id="admin_title"><%= item_with_link "admin_page_title" %></h3>
-    <p><%= item_with_link "admin_page_text" %></p>
-    <div class="ui divider"></div>
-    <p>
-      Greetings Administrator <%= current_user.name.capitalize %>,
-    </p>
-    <p>
-      Here will be information about the website and it's source code, as well as more in depth administrative features if requested.
-    </p>
-    <div class="ui bulleted list">
-      <div class="item">
-        <%= link_to '<i class="fa fa-github-alt"></i> GitHub Repository (website source code)'.html_safe, "https://github.com/forrestwebco/simplr", target: :_blank %>
-      </div>
-      <div class="item">
-        <%= link_to '<i class="fa fa-cloud"></i> Digital Ocean (your hosting provider)'.html_safe, "https://cloud.digitalocean.com/login", target: :_blank %>
-      </div>
-      <div class="item">
-        <%= link_to '<i class="fa fa-sitemap"></i> GoDaddy (your domain name registrar)'.html_safe, "https://www.godaddy.com", target: :_blank %>
-      </div>
+<% if michaela? %>
+  <div class="ui vertical stripe segment">
+    <div class="ui text container">
+      <h3 class="ui header" id="admin_title"><%= item_with_link "admin_page_title" %></h3>
+      <p><%= item_with_link "admin_page_text" %></p>
+      <div class="ui divider"></div>
+      <p>
+        Greetings Administrator <%= current_user.name.capitalize %>,
+      </p>
+      <p>
+        Here will be information about the website and it's source code, as well as more in depth administrative features if requested.
+      </p>
+      <div class="ui bulleted list">
+        <div class="item">
+          <%= link_to '<i class="fa fa-github-alt"></i> GitHub Repository (website source code)'.html_safe, "https://github.com/forrestwebco/simplr", target: :_blank %>
+        </div>
+        <div class="item">
+          <%= link_to '<i class="fa fa-cloud"></i> Digital Ocean (your hosting provider)'.html_safe, "https://cloud.digitalocean.com/login", target: :_blank %>
+        </div>
+        <div class="item">
+          <%= link_to '<i class="fa fa-sitemap"></i> GoDaddy (your domain name registrar)'.html_safe, "https://www.godaddy.com", target: :_blank %>
+        </div>
 
-      <div class="item">
-        <div><%= link_to '<i class="fa fa-diamond"></i> Ruby on Rails (your web-app framework)'.html_safe, "https://rubyonrails.org", target: :_blank %></div>
-        <div class="list">
-          <div class="item">
-            <%= link_to 'Guide to Rails (framework)'.html_safe, "https://guides.rubyonrails.org/getting_started.html", target: :_blank %>
-          </div>
-          <div class="item">
-            <%= link_to 'Learning Ruby (language)'.html_safe, "https://www.codecademy.com/catalog/language/ruby", target: :_blank %>
+        <div class="item">
+          <div><%= link_to '<i class="fa fa-diamond"></i> Ruby on Rails (your web-app framework)'.html_safe, "https://rubyonrails.org", target: :_blank %></div>
+          <div class="list">
+            <div class="item">
+              <%= link_to 'Guide to Rails (framework)'.html_safe, "https://guides.rubyonrails.org/getting_started.html", target: :_blank %>
+            </div>
+            <div class="item">
+              <%= link_to 'Learning Ruby (language)'.html_safe, "https://www.codecademy.com/catalog/language/ruby", target: :_blank %>
+            </div>
           </div>
         </div>
       </div>
+      <div class="ui divider"></div>
+      <h3 class="ui header"><%= item_with_link "danger_area_title" %></h3>
+      <p>
+        <%= link_to "Log out of all other sessions", destroy_all_other_sessions_path, method: :delete,
+          title: "Log out of all browsers or devices except for this one",
+          data: { confirm: "Are you sure? You'll have to log back in on any other devices or browsers." } %>
+      </p>
+      <p>
+        <% @user = current_user unless @user %>
+        <%= link_to 'Delete account (Destroys all of your data)', @user, method: :delete,
+          title: "Deletes your account and permanently destroys all of your data. It is not reccommended to delete your first administrator account.",
+          data: { confirm: "Are you sure you want to delete your account and permanently destroy all of your data? It is not reccommended to delete your first administrator account." }, style: "color:red;" %>
+      </p>
     </div>
   </div>
 
-</div>
+  <script>
+    $(document).ready(function() {
+      setTimeout(scroll_to_form, 500);
+    });
 
-<script>
-  $(document).ready(function() {
-    setTimeout(scroll_to_form, 500);
-  });
+    function scroll_to_form() {
+      var admin_title = $("#admin_title");
 
-  function scroll_to_form() {
-    var admin_title = $("#admin_title");
+      $('html, body').animate({
+        scrollTop: ($(admin_title).offset().top - 55)
+      }, 500);
+    }
+  </script>
 
-    $('html, body').animate({
-      scrollTop: ($(admin_title).offset().top - 55)
-    }, 500);
-  }
-</script>
-
-
-<!-- work in progress... vvv -->
-<%= render "app/scroll_to", id: :about_title if false %>
+  <!-- work in progress... vvv -->
+  <%= render "app/scroll_to", id: :about_title if false %>
+<% end %>
