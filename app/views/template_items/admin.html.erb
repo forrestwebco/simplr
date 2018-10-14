@@ -2,13 +2,26 @@
   <div class="ui text container">
     <h3 class="ui header" id="admin_title"><%= item_with_link "admin_page_title" %></h3>
     <p><%= item_with_link "admin_page_text" %></p>
+    <div class="ui divider"></div>
+    <p>
+      Greetings Administrator <%= current_user.name.capitalize %>,
+    </p>
     <p>
       Here will be information about the website and it's source code, as well as more in depth administrative features if requested.
     </p>
-    <p>
-      <%= link_to "GitHub Repository (website source code)", "https://github.com/forrestwebco/simplr" %>
-    </p>
+    <div class="ui bulleted list">
+      <div class="item">
+        <%= link_to '<i class="fa fa-github-alt"></i> GitHub Repository (website source code)'.html_safe, "https://github.com/forrestwebco/simplr", target: :_blank %>
+      </div>
+      <div class="item">
+        <%= link_to '<i class="fa fa-cloud"></i> Digital Ocean (your hosting provider)'.html_safe, "https://cloud.digitalocean.com/login", target: :_blank %>
+      </div>
+      <div class="item">
+        <%= link_to '<i class="fa fa-sitemap"></i> GoDaddy (your domain name registrar)'.html_safe, "https://www.godaddy.com", target: :_blank %>
+      </div>
+    </div>
   </div>
+
 </div>
 
 <script>
