@@ -32,7 +32,7 @@ class TemplateItemsController < ApplicationController
   end
 
   def pass_wall
-    cookies[:dev_wall_passed_yet] = { value: true, expires: 1.week.from_now }
+    cookies[:dev_wall_passed_yet] = { value: true, expires: 2.day.from_now }
     redirect_to root_url
   end
 
