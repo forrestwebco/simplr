@@ -99,6 +99,8 @@ class TemplateItemsController < ApplicationController
       @calendar = true
     when :pricing
       @pricing = true
+    when :admin
+      @admin = true
     end
   end
 
