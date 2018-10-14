@@ -157,7 +157,7 @@
       </div>
     </div>
 
-    <% unless cookies[:dev_wall_passed].present? or Date.new(2018, 10, 14).past? %>
+    <% unless cookies[:dev_wall_passed_yet].present? or Date.new(2018, 10, 14).past? %>
       <%= link_to pass_wall_path, class: :still_in_dev_wall, id: :still_in_dev_wall do %>
         <div class="dark_card top_spacer inner_card_padding" id="still_in_dev_wall_card" align="center">
           <p class="still_in_dev_wall_txt" id="still_in_dev_wall_txt">
