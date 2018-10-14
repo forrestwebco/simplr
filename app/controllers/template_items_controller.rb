@@ -6,7 +6,7 @@ class TemplateItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update]
   before_action :check_auth, only: [:edit, :update, :gen_item, :admin]
 
-  before_action :set_page, only: [:on_point, :about, :schedule, :calendar, :pricing]
+  before_action :set_page, only: [:on_point, :about, :schedule, :calendar, :pricing, :admin]
 
   layout :resolve_layout
 

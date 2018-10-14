@@ -2,6 +2,13 @@
   <div class="ui text container">
     <h3 class="ui header" id="get_started_title"><%= item_with_link "get_started_title" %></h3>
     <p><%= item_with_link "get_started_text" %></p>
+
+    <% if item_not_set? "get_started_text" %>
+      <div class="ui divider"></div>
+      <p>
+        Here will be information reguarding our onboarding process. Click <%= link_to "here", root_url %> to return home.
+      </p>
+    <% end %>
   </div>
 </div>
 

@@ -1,4 +1,12 @@
 module TemplateItemsHelper
+  def item_not_set? tag
+    item = TemplateItem.find_by_tag(tag)
+    if item and item.body.present? and item.body.to_s.include? "template item has not been set"
+      return true
+    end
+    nil
+  end
+
   def item_form_except_for items
     for item in items
       if @item.tag.include? item.to_s

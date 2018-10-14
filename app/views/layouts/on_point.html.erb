@@ -56,7 +56,7 @@
         <%= link_to "Schedule", on_point_schedule_path, class: "#{@schedule ? 'active' : ''} item" %>
         <%= link_to "Calendar", on_point_calendar_path, class: "#{@calendar ? 'active' : ''} item" %>
         <%= link_to "Pricing", on_point_pricing_path, class: "#{@pricing ? 'active' : ''} item" %>
-        <%= link_to "Admin", admin_path, class: "#{@admin ? 'active' : ''} item" %>
+        <%= link_to "Admin", admin_path, class: "#{@admin ? 'active' : ''} item" if michaela? %>
         <div class="right menu">
           <div class="item">
             <% unless current_user %>
