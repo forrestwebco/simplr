@@ -22,7 +22,7 @@ class TemplateItem < ApplicationRecord
       end
     end
     self.start_date = DateTime.current
-    self.total_classes = rand 10..30
+    self.total_students = rand 10..30
   end
 
   def gen_unique_token
