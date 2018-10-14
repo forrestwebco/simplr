@@ -69,7 +69,7 @@
       </div>
     </div>
   </div>
-<% elsif in_dev? %>
+<% elsif in_dev? and current_user %>
   <div class="ui vertical stripe segment">
     <div class="ui text container">
       <h3 class="ui header">Hello there, <%= current_user.name %>!</h3>
