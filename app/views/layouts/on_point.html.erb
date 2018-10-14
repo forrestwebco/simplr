@@ -56,7 +56,8 @@
         <%= link_to "Schedule", on_point_schedule_path, class: "#{@schedule ? 'active' : ''} item" %>
         <%= link_to "Calendar", on_point_calendar_path, class: "#{@calendar ? 'active' : ''} item" %>
         <%= link_to "Pricing", on_point_pricing_path, class: "#{@pricing ? 'active' : ''} item" %>
-        <%= link_to "Admin", admin_path, class: "#{@admin ? 'active' : ''} item" if michaela? %>
+        <%= link_to "Admin", admin_path, class: "#{@admin ? 'active' : ''} item",
+          title: "Only visible to you and other potential admins, if you wish to add more." if michaela? %>
         <div class="right menu">
           <div class="item">
             <% unless current_user %>
@@ -88,7 +89,8 @@
       <% if current_user %>
         <!-- To be reserved for potential admin creation feature -->
         <%= link_to "Register", 'javascript:;', data: { confirm: "This link is only visible to admins and is reserved here in case you'd like the ability to add other admins in the future, or if you'd like to have user accounts/profiles for each customer." }, title: "This link is only visible to admins and is reserved here in case you'd like the ability to add other admins in the future, or if you'd like to have user accounts/profiles for each customer.", class: "item" %>
-        <%= link_to "Admin", admin_path, class: :item if michaela? %>
+        <%= link_to "Admin", admin_path, class: :item,
+          title: "Only visible to you and other potential admins, if you wish to add more." if michaela? %>
       <% end %>
     </div>
 
@@ -105,7 +107,8 @@
             <%= link_to "Schedule", on_point_schedule_path, class: "#{@schedule ? 'active' : ''} item" %>
             <%= link_to "Calendar", on_point_calendar_path, class: "#{@calendar ? 'active' : ''} item" %>
             <%= link_to "Pricing", on_point_pricing_path, class: "#{@pricing ? 'active' : ''} item" %>
-            <%= link_to "Admin", admin_path, class: "#{@admin ? 'active' : ''} item" if michaela? %>
+            <%= link_to "Admin", admin_path, class: "#{@admin ? 'active' : ''} item",
+              title: "Only visible to you and other potential admins, if you wish to add more." if michaela? %>
           </div>
         </div>
         <div class="ui text container">
