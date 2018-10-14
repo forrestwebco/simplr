@@ -36,13 +36,13 @@
       <div class="ui divider"></div>
       <h3 class="ui header"><%= item_with_link "danger_area_title" %></h3>
       <p>
-        <%= link_to "Log out of all other sessions", destroy_all_other_sessions_path, method: :delete,
+        <%= link_to 'Log out of all other sessions <i class="fa fa-ban"></i>'.html_safe, destroy_all_other_sessions_path, method: :delete,
           title: "Log out of all browsers or devices except for this one",
           data: { confirm: "Are you sure? You'll have to log back in on any other devices or browsers." } %>
       </p>
       <p>
         <% @user = current_user unless @user %>
-        <%= link_to 'Delete account (Destroys all of your data)', @user, method: :delete,
+        <%= link_to 'Delete account (Destroys all of your data) <i class="fa fa-trash-o"></i>'.html_safe, @user, method: :delete,
           title: "Deletes your account and permanently destroys all of your data. It is not reccommended to delete your first administrator account.",
           data: { confirm: "Are you sure you want to delete your account and permanently destroy all of your data? It is not reccommended to delete your first administrator account." }, style: "color:red;" %>
       </p>
